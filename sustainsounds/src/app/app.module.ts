@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,7 +8,7 @@ import { EventsModule } from './events/events.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, EventsModule],
+  imports: [BrowserModule, AppRoutingModule, EventsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
