@@ -6,11 +6,19 @@ html {
 }
 body {
     height: 100vh;
-    background-color: darksalmon;
     font-family: 'Poppins', 'Helvetica', sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 4rem 2fr 1fr;
+    gap: 1rem;
+    grid-template-areas:
+        'header header header'
+        'img browse browse'
+        'info info info';
 }
 
 header {
+    grid-area: header;
     position: sticky;
     top: 0;
     background-color: brown;
