@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { IEvent } from 'src/app/interfaces/event';
 import { EventsService } from '../events.service';
 

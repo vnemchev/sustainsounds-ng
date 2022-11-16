@@ -1,4 +1,23 @@
-<p>event-list works!</p>
-<div *ngFor="let event of eventsList">
-  <div>{{ event.name }}</div>
+<div class="container">
+  <mat-card role="region" *ngFor="let event of eventsList">
+    <mat-card-title-group>
+      <img src="{{ event.imageUrl }}" mat-card-avatar />
+
+      <mat-card-title>
+        {{ event.name }}
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        {{ event.date }} {{ event.time }} {{ event.location }}
+      </mat-card-subtitle>
+    </mat-card-title-group>
+
+    <mat-card-content> </mat-card-content>
+
+    <mat-card-footer>
+      <!-- <mat-card-actions> -->
+      <button mat-raised-button color="accent">Details</button>
+      <!-- </mat-card-actions> -->
+    </mat-card-footer>
+  </mat-card>
 </div>
