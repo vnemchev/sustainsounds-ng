@@ -6,9 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventsService } from './events.service';
 import { HttpClient } from '@angular/common/http';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
-  declarations: [EventListComponent],
+  declarations: [EventListComponent, EventDetailsComponent],
   providers: [EventsService, HttpClient],
   imports: [CommonModule, MatCardModule, MatButtonModule],
   exports: [EventListComponent],

@@ -16,7 +16,9 @@
 
     <mat-card-footer>
       <!-- <mat-card-actions> -->
-      <button mat-raised-button color="accent">Details</button>
+      <button (click)="showDetails(event._id)" mat-raised-button color="accent">
+        Details
+      </button>
       <!-- </mat-card-actions> -->
     </mat-card-footer>
   </mat-card>

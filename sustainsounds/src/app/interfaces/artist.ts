@@ -1,4 +1,5 @@
 export interface IArtist {
+  _id: string;
   email: string;
   password: string;
   alias: string;

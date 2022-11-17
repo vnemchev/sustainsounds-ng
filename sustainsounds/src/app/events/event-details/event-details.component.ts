@@ -1,32 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-
 import { IEvent } from 'src/app/interfaces/event';
+
 import { EventsService } from '../events.service';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css'],
+  selector: 'app-event-details',
+  templateUrl: './event-details.component.html',
+  styleUrls: ['./event-details.component.css'],
 })
-export class EventListComponent implements OnInit {
-  eventsList: IEvent[] | null = null;
+export class EventDetailsComponent implements OnInit {
+  event: IEvent | null = null;
   errorFetchingData = false;
 
   constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
-    this.eventsService.getAll().subscribe({
+    this.eventsService.getOne().subscribe({
       next: (value) => {
-        this.eventsList = value;
+        this.event = value;
       },
       error: (err) => {
         this.errorFetchingData = true;
         console.error(err);
       },
     });
-  }
-
-  showDetails(_id: string): void {
-    console.log(_id);
   }
 }
