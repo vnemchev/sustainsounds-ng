@@ -8,7 +8,12 @@ import { IEvent } from 'src/app/interfaces/event';
 })
 export class EventDetailsComponent {
   @Input() event?: IEvent;
+  @Input() show?: boolean;
 
-  
   constructor() {}
+
+  close() {
+    this.show = false;
+    console.log(this.show);
+  }
 }

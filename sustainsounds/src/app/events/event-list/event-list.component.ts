@@ -11,6 +11,7 @@ import { EventsService } from '../events.service';
 export class EventListComponent implements OnInit {
   eventsList: IEvent[] | null = null;
   selectedEvent?: IEvent;
+  showDetails = false;
   errorFetchingData = false;
 
   constructor(private eventsService: EventsService) {}
@@ -27,7 +28,8 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  onSelect(event: IEvent) {
+  onSelect(event: IEvent): void {
     this.selectedEvent = event;
+    this.showDetails = true;
   }
 }

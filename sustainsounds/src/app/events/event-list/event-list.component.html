@@ -22,6 +22,11 @@
       <!-- </mat-card-actions> -->
     </mat-card-footer>
   </mat-card>
-  
-  <app-event-details [event]="selectedEvent"> </app-event-details>
+
+  <app-event-details
+    *ngIf="showDetails"
+    [event]="selectedEvent"
+    [show]="showDetails"
+  >
+  </app-event-details>
 </div>
