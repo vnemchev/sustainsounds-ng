@@ -1,0 +1,17 @@
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  color: white;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+a:not(a:last-child) {
+  margin-right: 20px;
+}
+
+a:first-child {
+  font-weight: 900;
+  font-size: x-large;
+}
