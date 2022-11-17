@@ -16,10 +16,12 @@
 
     <mat-card-footer>
       <!-- <mat-card-actions> -->
-      <button (click)="showDetails(event._id)" mat-raised-button color="accent">
+      <button (click)="onSelect(event)" mat-raised-button color="accent">
         Details
       </button>
       <!-- </mat-card-actions> -->
     </mat-card-footer>
   </mat-card>
+  
+  <app-event-details [event]="selectedEvent"> </app-event-details>
 </div>

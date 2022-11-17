@@ -10,6 +10,7 @@ import { EventsService } from '../events.service';
 })
 export class EventListComponent implements OnInit {
   eventsList: IEvent[] | null = null;
+  selectedEvent?: IEvent;
   errorFetchingData = false;
 
   constructor(private eventsService: EventsService) {}
@@ -26,7 +27,7 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  showDetails(_id: string): void {
-    console.log(_id);
+  onSelect(event: IEvent) {
+    this.selectedEvent = event;
   }
 }
