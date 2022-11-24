@@ -7,17 +7,20 @@ import { AppComponent } from './app.component';
 import { EventsModule } from './events/events.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, AuthLoginComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    EventsModule,
-    CoreModule,
-    HttpClientModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    EventsModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,11 +8,18 @@ import { EventsService } from './events.service';
 import { HttpClient } from '@angular/common/http';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { RouterModule } from '@angular/router';
+import { EventsRoutingModule } from './events-routing.module';
 
 @NgModule({
   declarations: [EventListComponent, EventDetailsComponent],
   providers: [EventsService, HttpClient],
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    RouterModule,
+    EventsRoutingModule,
+  ],
   exports: [EventListComponent],
 })
 export class EventsModule {}
