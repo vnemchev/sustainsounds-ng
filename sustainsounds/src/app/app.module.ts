@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { EventsModule } from './events/events.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AuthLoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

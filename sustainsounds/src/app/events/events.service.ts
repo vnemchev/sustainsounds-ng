@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { IEvent } from '../interfaces/event';
+import { IEvent } from '../shared/interfaces/event';
 
 const url = environment.apiURL;
 

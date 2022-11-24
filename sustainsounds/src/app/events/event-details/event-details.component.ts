@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IEvent } from 'src/app/interfaces/event';
+import { IEvent } from 'src/app/shared/interfaces/event';
 
 @Component({
   selector: 'app-event-details',
