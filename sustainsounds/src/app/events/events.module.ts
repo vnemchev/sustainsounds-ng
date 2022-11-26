@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { CreateComponent } from './create/create.component';
@@ -15,11 +19,14 @@ import { EventsService } from './events.service';
   declarations: [EventListComponent, EventDetailsComponent, CreateComponent],
   providers: [EventsService, HttpClient],
   imports: [
+    EventsRoutingModule,
     CommonModule,
+    RouterModule,
     MatCardModule,
     MatButtonModule,
-    RouterModule,
-    EventsRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
   ],
   exports: [EventListComponent, CreateComponent],
 })

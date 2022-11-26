@@ -1,1 +1,35 @@
-<p>create works!</p>
+<mat-card class="form">
+  <form action="">
+    <mat-card-title> Create </mat-card-title>
+  </form>
+
+  <mat-form-field appearance="outline" color="accent">
+    <input
+      matInput
+      placeholder="Woodstock"
+      name="name"
+      id="name"
+      type="email"
+      required
+      ngModel
+    />
+    <mat-label for="name">name</mat-label>
+    <mat-error>no!</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="accent">
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder=""
+      name="date"
+      id="date"
+      type="date"
+      required
+      ngModel
+    />
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-label for="date">date</mat-label>
+    <mat-error>no!</mat-error>
+  </mat-form-field>
+</mat-card>

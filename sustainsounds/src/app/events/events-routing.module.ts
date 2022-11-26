@@ -7,9 +7,12 @@ import { EventListComponent } from './event-list/event-list.component';
 const routes: Routes = [
   {
     path: 'events',
-    children: [
-      { path: 'create', title: 'Create Event', component: CreateComponent },
-    ],
+    component: EventListComponent,
+  },
+  {
+    path: 'events/create',
+    title: 'Create Event',
+    component: CreateComponent,
   },
 ];
 
