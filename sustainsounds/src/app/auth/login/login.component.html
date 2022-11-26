@@ -1,1 +1,40 @@
-<p>login works!</p>
+<mat-card class="form">
+  <mat-card-title-group>
+    <!-- <mat-card-title> Login </mat-card-title> -->
+  </mat-card-title-group>
+  <form
+    #form="ngForm"
+    class="login-form"
+    color="primary"
+    (ngSubmit)="loginHandler(form)"
+  >
+    <mat-card-title> Login </mat-card-title>
+
+    <mat-form-field appearance="outline" color="accent">
+      <input
+        matInput
+        placeholder="username@email.com"
+        name="email"
+        id="email"
+        type="email"
+        required
+        ngModel
+      />
+      <mat-label for="1">e-mail</mat-label>
+      <mat-error>no!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+      <input
+        matInput
+        placeholder="*******"
+        name="password"
+        id="password"
+        type="password"
+        required
+        ngModel
+      />
+      <mat-label for="1">password</mat-label>
+    </mat-form-field>
+    <button mat-raised-button color="accent">Details</button>
+  </form>
+</mat-card>
