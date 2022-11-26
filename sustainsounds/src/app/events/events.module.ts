@@ -8,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { RouterModule } from '@angular/router';
 import { EventsRoutingModule } from './events-routing.module';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
-  declarations: [EventListComponent, EventDetailsComponent],
+  declarations: [EventListComponent, EventDetailsComponent, CreateComponent],
   providers: [EventsService, HttpClient],
   imports: [
     CommonModule,
@@ -19,6 +20,6 @@ import { EventsRoutingModule } from './events-routing.module';
     RouterModule,
     EventsRoutingModule,
   ],
-  exports: [EventListComponent],
+  exports: [EventListComponent, CreateComponent],
 })
 export class EventsModule {}
