@@ -11,8 +11,8 @@ const url = environment.apiURL;
 export class EventsService {
   constructor(private httpClient: HttpClient) {}
 
-  getOne() {
-    return this.httpClient.get<IEvent>(`${url}/events/:id`); // check if makes sense
+  getOne(id: string) {
+    return this.httpClient.get<IEvent>(`${url}/events/${id}`); // check if makes sense
   }
 
   getAll() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IEvent } from 'src/app/shared/interfaces/event';
 import { EventsService } from '../events.service';
@@ -10,11 +11,9 @@ import { EventsService } from '../events.service';
 })
 export class EventListComponent implements OnInit {
   eventsList: IEvent[] | null = null;
-  selectedEvent?: IEvent;
-  showDetails = false;
   errorFetchingData = false;
 
-  constructor(private eventsService: EventsService) {}
+  constructor(private eventsService: EventsService, private router: Router) {}
 
   ngOnInit(): void {
     this.eventsService.getAll().subscribe({
@@ -28,8 +27,8 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  onSelect(event: IEvent): void {
-    this.selectedEvent = event;
-    this.showDetails = true;
+  onDetailsClick(id: string): void {
+    console.log(this.router);
+    this.router.navigate([`/events/${id}`]);
   }
 }

@@ -16,17 +16,15 @@
 
     <mat-card-footer>
       <!-- <mat-card-actions> -->
-      <button class="mat-elevation-z4" mat-raised-button color="accent">
+      <button
+        class="mat-elevation-z4"
+        mat-raised-button
+        color="accent"
+        (click)="onDetailsClick(event._id)"
+      >
         Details
       </button>
       <!-- </mat-card-actions> -->
     </mat-card-footer>
   </mat-card>
-
-  <app-event-details
-    *ngIf="showDetails"
-    [event]="selectedEvent"
-    [show]="showDetails"
-  >
-  </app-event-details>
 </div>
