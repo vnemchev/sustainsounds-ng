@@ -4,17 +4,17 @@
   padding: 22px;
 }
 
-.form .create-form {
+.form .edit-form {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
 }
 
-.form .create-form input {
+.form .edit-form input {
   width: 100%;
 }
 
-.form .create-form textarea {
+.form .edit-form textarea {
   resize: none;
   overflow: auto;
 }

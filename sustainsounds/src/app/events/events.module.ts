@@ -15,14 +15,22 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { CreateComponent } from './create/create.component';
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsService } from './events.service';
+import { EditComponent } from './edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [EventListComponent, EventDetailsComponent, CreateComponent],
+  declarations: [
+    EventListComponent,
+    EventDetailsComponent,
+    CreateComponent,
+    EditComponent,
+  ],
   providers: [EventsService, HttpClient],
   imports: [
     EventsRoutingModule,
     CommonModule,
     RouterModule,
+    FormsModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,

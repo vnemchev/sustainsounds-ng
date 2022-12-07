@@ -22,7 +22,7 @@ input[matinput]::-webkit-inner-spin-button,
 input[matinput]::-webkit-calendar-picker-indicator {
   display: none;
   background: none;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   margin: 0;
 }
 
