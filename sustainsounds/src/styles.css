@@ -4,7 +4,6 @@ html,
 body {
   height: 100%;
 }
-
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -15,4 +14,21 @@ body {
 .tint {
   background-color: rgba(0, 0, 0, 0.8);
   background-blend-mode: multiply;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[matinput]::-webkit-outer-spin-button,
+input[matinput]::-webkit-inner-spin-button,
+input[matinput]::-webkit-calendar-picker-indicator {
+  display: none;
+  background: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[matinput][type="number"],
+input[matinput][type="date"],
+input[matinput][type="time"] {
+  -moz-appearance: textfield;
 }

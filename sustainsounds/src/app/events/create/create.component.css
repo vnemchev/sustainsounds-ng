@@ -1,0 +1,34 @@
+.form {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.form mat-card-title {
+  margin-top: 6px;
+}
+
+.form .create-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.form .create-form input {
+  width: 100%;
+}
+
+.form .create-form textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  column-gap: 14px;
+}
+
+.info .info-field {
+  width: calc(100% - 14px);
+}

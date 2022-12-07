@@ -8,7 +8,5 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   constructor() {}
-  loginHandler(form: any) {
-    console.log(form);
-  }
+  loginHandler(form: any) {}
 }

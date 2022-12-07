@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
@@ -26,6 +27,7 @@ import { EventsService } from './events.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatDatepickerModule,
   ],
   exports: [EventListComponent, CreateComponent],

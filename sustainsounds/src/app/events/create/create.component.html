@@ -1,34 +1,115 @@
-<mat-card class="form">
-  <form action="">
-    <mat-card-title> Create </mat-card-title>
+<mat-card class="form" color="accent">
+  <mat-card-title class="title"> Create </mat-card-title>
+
+  <form class="create-form">
+    <mat-form-field class="hi" appearance="outline" color="accent">
+      <input
+        matInput
+        placeholder="Woodstock"
+        name="name"
+        id="name"
+        type="text"
+        required
+        ngModel
+      />
+
+      <mat-label for="name">name</mat-label>
+      <mat-error>no!</mat-error>
+    </mat-form-field>
+
+    <div class="info">
+      <mat-form-field class="info-field" appearance="outline" color="accent">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="20/12/2022"
+          name="date"
+          id="date"
+          type="date"
+          required
+          ngModel
+        />
+        <mat-label for="date">date</mat-label>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="info-field" appearance="outline" color="accent">
+        <input
+          matInput
+          placeholder=""
+          name="time"
+          id="time"
+          type="time"
+          required
+          ngModel
+        />
+        <!-- <button matSuffix mat-icon-button aria-label="Clear">
+      <mat-icon>close</mat-icon>
+    </button> -->
+        <mat-icon matSuffix>query_builder</mat-icon>
+
+        <mat-label for="time">time</mat-label>
+        <mat-error>no!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="info-field" appearance="outline" color="accent">
+        <input
+          matInput
+          placeholder="Stonehenge"
+          name="location"
+          id="location"
+          type="text"
+          required
+          ngModel
+        />
+        <mat-icon matSuffix>place</mat-icon>
+
+        <mat-label for="location">location</mat-label>
+        <mat-error>no!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="info-field" appearance="outline" color="accent">
+        <input
+          matInput
+          placeholder="17"
+          name="price"
+          id="price"
+          type="number"
+          required
+          ngModel
+        />
+
+        <mat-icon matSuffix>euro</mat-icon>
+        <mat-label for="price">price</mat-label>
+        <mat-error>no!</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" color="accent">
+      <input
+        matInput
+        placeholder="https://www.behance.net/gallery/158161911/I-..."
+        name="imageUrl"
+        id="imageUrl"
+        type="url"
+        ngModel
+      />
+
+      <mat-label for="imageUrl">link to image</mat-label>
+      <mat-error>no!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+      <textarea
+        matInput
+        placeholder="Ex. The event is called..."
+        name="description"
+        id="description"
+        rows="6"
+      >
+      </textarea>
+      <mat-label>describe your event</mat-label>
+    </mat-form-field>
   </form>
-
-  <mat-form-field appearance="outline" color="accent">
-    <input
-      matInput
-      placeholder="Woodstock"
-      name="name"
-      id="name"
-      type="email"
-      required
-      ngModel
-    />
-    <mat-label for="name">name</mat-label>
-    <mat-error>no!</mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline" color="accent">
-    <input
-      matInput
-      placeholder=""
-      name="date"
-      id="date"
-      type="date"
-      required
-      ngModel
-    />
-    <!-- <mat-datepicker #picker></mat-datepicker> -->
-    <mat-label for="date">date</mat-label>
-    <mat-error>no!</mat-error>
-  </mat-form-field>
 </mat-card>
