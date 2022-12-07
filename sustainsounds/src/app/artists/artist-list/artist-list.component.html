@@ -14,7 +14,13 @@
 
     <mat-card-footer>
       <!-- <mat-card-actions> -->
-      <button mat-raised-button color="accent">Details</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="onArtistDetails(artist._id)"
+      >
+        Details
+      </button>
       <!-- </mat-card-actions> -->
     </mat-card-footer>
   </mat-card>

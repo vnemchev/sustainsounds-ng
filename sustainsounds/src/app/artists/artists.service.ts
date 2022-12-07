@@ -11,8 +11,8 @@ const url = environment.apiURL;
 export class ArtistsService {
   constructor(private httpClient: HttpClient) {}
 
-  getOne() {
-    return this.httpClient.get<IArtist>(`${url}/users/artists`);
+  getOne(id: string) {
+    return this.httpClient.get<IArtist>(`${url}/users/artists/${id}`);
   }
 
   getAll() {

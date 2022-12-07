@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { IArtist } from 'src/app/shared/interfaces/artist';
 import { ArtistsService } from '../artists.service';
 
@@ -11,7 +13,7 @@ export class ArtistListComponent implements OnInit {
   artistList: IArtist[] | null = null;
   errorFetchingData = false;
 
-  constructor(private artistService: ArtistsService) {}
+  constructor(private artistService: ArtistsService, private router: Router) {}
 
   ngOnInit(): void {
     this.artistService.getAll().subscribe({
@@ -24,5 +26,9 @@ export class ArtistListComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  onArtistDetails(id: string): void {
+    this.router.navigate([`/artists/${id}`]);
   }
 }
