@@ -1,12 +1,32 @@
-.container {
+.events-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 30vh);
-  gap: 20px;
+  gap: 60px;
   padding: 20px 20px;
 }
-/* 
-mat-card {
-  width: 300px;
-  margin: 10px auto;
-} */
+
+.event-card {
+  background-color: rgba(66, 66, 66, 0.3);
+  height: 14vh;
+}
+
+.event-card:hover {
+  -webkit-transition: all 0.9s 0s ease;
+  -moz-transition: all 0.9s 0s ease;
+  -o-transition: all 0.9s 0s ease;
+  transition: all 0.9s 0s ease;
+  background-color: rgba(66, 66, 66, 0.6);
+}
+
+mat-card-content {
+  height: 8vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+mat-card-content button {
+  position: absolute;
+  bottom: 18px;
+}

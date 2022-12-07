@@ -2,16 +2,13 @@
   width: 400px;
   margin: 50px auto;
   padding: 22px;
+  background-color: rgba(66, 66, 66, 0.4);
 }
 
 .form .edit-form {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-}
-
-.form .edit-form input {
-  width: 100%;
 }
 
 .form .edit-form textarea {

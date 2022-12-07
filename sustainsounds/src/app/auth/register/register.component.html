@@ -1,7 +1,7 @@
 <mat-card class="form">
-  <form #form="ngForm" class="login-form">
-    <mat-card-title> Register </mat-card-title>
+  <mat-card-title> Register </mat-card-title>
 
+  <form #form="ngForm" class="register-form">
     <mat-form-field appearance="outline" color="accent">
       <input
         matInput
@@ -15,6 +15,7 @@
       <mat-label for="email">e-mail</mat-label>
       <mat-error>no!</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="outline" color="accent">
       <input
         matInput
@@ -27,6 +28,7 @@
       />
       <mat-label for="password">password</mat-label>
     </mat-form-field>
+
     <mat-form-field appearance="outline" color="accent">
       <input
         matInput
@@ -39,6 +41,24 @@
       />
       <mat-label for="repeatPassword">repeat password</mat-label>
     </mat-form-field>
+
+    <mat-checkbox name="checkbox" labelPosition="before" (click)="check()">
+      Register as artist?
+    </mat-checkbox>
+
+    <mat-form-field *ngIf="checked" appearance="outline" color="accent">
+      <input
+        matInput
+        placeholder="Metallica"
+        name="alias"
+        id="alias"
+        type="text"
+        required
+        ngModel
+      />
+      <mat-label for="alias">alias</mat-label>
+    </mat-form-field>
+
     <button mat-raised-button color="accent">Details</button>
   </form>
 </mat-card>

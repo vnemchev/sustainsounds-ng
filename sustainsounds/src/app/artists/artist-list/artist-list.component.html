@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card *ngFor="let artist of artistList">
+  <mat-card class="artist-card" *ngFor="let artist of artistList">
     <mat-card-title-group>
       <img src="{{ artist.imageUrl }}" mat-card-avatar />
 
@@ -12,7 +12,7 @@
       </mat-card-subtitle>
     </mat-card-title-group>
 
-    <mat-card-footer>
+    <mat-card-content>
       <!-- <mat-card-actions> -->
       <button
         mat-raised-button
@@ -22,6 +22,6 @@
         Details
       </button>
       <!-- </mat-card-actions> -->
-    </mat-card-footer>
+    </mat-card-content>
   </mat-card>
 </div>

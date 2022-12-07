@@ -1,12 +1,12 @@
 <mat-card class="form">
+  <mat-card-title> Login </mat-card-title>
+
   <form
     #form="ngForm"
     class="login-form"
     color="primary"
     (ngSubmit)="loginHandler(form)"
   >
-    <mat-card-title> Login </mat-card-title>
-
     <mat-form-field appearance="outline" color="accent">
       <input
         matInput
@@ -32,6 +32,6 @@
       />
       <mat-label for="password">password</mat-label>
     </mat-form-field>
-    <button mat-raised-button color="accent">Details</button>
+    <button  mat-raised-button color="accent">Details</button>
   </form>
 </mat-card>

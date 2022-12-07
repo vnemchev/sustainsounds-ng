@@ -2,16 +2,13 @@
   width: 400px;
   margin: 50px auto;
   padding: 22px;
+  background-color: rgba(66, 66, 66, 0.4);
 }
 
 .form .create-form {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-}
-
-.form .create-form input {
-  width: 100%;
 }
 
 .form .create-form textarea {

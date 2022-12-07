@@ -1,9 +1,27 @@
 .form {
   width: 400px;
   margin: 50px auto;
+  padding: 22px;
+  background-color: rgba(66, 66, 66, 0.4);
 }
 
-.form form {
+.form .register-form {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.form .register-form mat-form-field {
+  width: 100%;
+}
+
+mat-checkbox {
+  width: fit-content;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  margin-bottom: 20px;
 }

@@ -5,12 +5,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatCheckboxModule,
     // MatFormFieldAppearance
   ],
   exports: [RegisterComponent, LoginComponent],

@@ -1,6 +1,9 @@
 app-root {
+  overflow-y: hidden;
 }
 
 main {
   margin: 0 auto;
+  width: calc(100% - 22vw);
 }
+
