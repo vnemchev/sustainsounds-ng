@@ -25,7 +25,6 @@ import { FormsModule } from '@angular/forms';
     CreateComponent,
     EditComponent,
   ],
-  providers: [EventsService, HttpClient],
   imports: [
     EventsRoutingModule,
     CommonModule,
