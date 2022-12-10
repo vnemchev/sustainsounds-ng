@@ -12,9 +12,16 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   loginHandler(form: NgForm): void {
-    // if (form.invalid) return console.log('wrong');
+    if (form.invalid) return console.log('wrong');
 
-    this.authService.login(form.value);
-    this.router.navigate([''])
+    this.authService.login(form.value).subscribe({
+      next(value) {
+        console.log(form);
+        
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
   }
 }

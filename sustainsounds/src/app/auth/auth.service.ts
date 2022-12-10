@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IArtist } from '../shared/interfaces/artist';
 import { IFan } from '../shared/interfaces/fan';
+import { tap } from 'rxjs';
 
 const url = environment.apiURL;
 
@@ -15,35 +16,18 @@ export class AuthService {
   login(data: object) {
     return this.httpClient
       .post<IArtist | IFan>(`${url}/auth/login`, JSON.stringify(data))
-      .subscribe({
-        next: (value) => {
-          console.log(value);
-          this.setSession(value);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
+      .pipe(tap((res) => this.setSession(res)));
   }
 
   register(data: object) {
     return this.httpClient
       .post<IArtist | IFan>(`${url}/auth/register`, JSON.stringify(data))
-      .subscribe({
-        next: (value) => {
-          console.log(value);
-          this.setSession(value);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
+      .pipe(tap((res) => this.setSession(res)));
   }
 
   logout() {
     return this.httpClient.get(`${url}/auth/logout`).subscribe({
       next: (value) => {
-        console.log(value);
         this.clearSession();
       },
       error: (err) => console.log(err),

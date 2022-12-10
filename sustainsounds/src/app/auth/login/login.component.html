@@ -14,11 +14,12 @@
         name="email"
         id="email"
         type="email"
+        #emailInput="ngModel"
         required
         ngModel
       />
       <mat-label for="email">e-mail</mat-label>
-      <mat-error>no!</mat-error>
+      <mat-error>Ivalid e-mail!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent">
       <input
@@ -27,10 +28,12 @@
         name="password"
         id="password"
         type="password"
+        #passwordInput="ngModel"
         required
         ngModel
       />
       <mat-label for="password">password</mat-label>
+      <mat-error>no!</mat-error>
     </mat-form-field>
     <button mat-raised-button color="accent">Details</button>
   </form>
