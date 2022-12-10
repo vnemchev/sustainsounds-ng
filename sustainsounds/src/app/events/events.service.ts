@@ -12,10 +12,14 @@ export class EventsService {
   constructor(private httpClient: HttpClient) {}
 
   getOne(id: string) {
-    return this.httpClient.get<IEvent>(`${url}/events/${id}`); // check if makes sense
+    return this.httpClient.get<IEvent>(`${url}/events/${id}`);
   }
 
   getAll() {
     return this.httpClient.get<IEvent[]>(`${url}/events`);
+  }
+
+  create(event: IEvent) {
+    return this.httpClient.post(`${url}/events`, event);
   }
 }

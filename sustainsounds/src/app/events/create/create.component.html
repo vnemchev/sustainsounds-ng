@@ -1,7 +1,11 @@
 <mat-card class="form">
   <mat-card-title class="title"> Create </mat-card-title>
 
-  <form class="create-form">
+  <form
+    #createForm="ngForm"
+    (ngSubmit)="onSubmit(createForm)"
+    class="create-form"
+  >
     <mat-form-field class="hi" appearance="outline" color="accent">
       <input
         matInput
@@ -25,7 +29,7 @@
           placeholder="20/12/2022"
           name="date"
           id="date"
-          type="date"
+          type="text"
           required
           ngModel
         />
