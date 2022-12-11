@@ -14,7 +14,7 @@ export class EventDetailsComponent implements OnInit {
   eventId!: string;
   event: IEvent | null = null;
   errorFetchingData = false;
-  isOwner = false;
+  isOwner: boolean | null = null;
 
   constructor(
     private authService: AuthService,
@@ -29,8 +29,6 @@ export class EventDetailsComponent implements OnInit {
       next: (value) => {
         this.event = value;
         this.isOwner = this.authService.isOwner(this.event?._ownerId as string);
-
-        console.log(this.isOwner);
       },
       error: (err) => {
         this.errorFetchingData = true;

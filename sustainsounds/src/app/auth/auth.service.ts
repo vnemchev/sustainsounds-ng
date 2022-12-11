@@ -74,4 +74,8 @@ export class AuthService {
     console.log('service' + this.user?._id === eventId);
     return this.user?._id === eventId;
   }
+
+  getToken() {
+    return this.user?.accessToken;
+  }
 }
