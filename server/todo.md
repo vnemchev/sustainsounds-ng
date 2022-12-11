@@ -1,7 +1,9 @@
 # TODO
 
+-   [ ] Details event
 -   [ ] Edit event
 -   [ ] Delete event
 -   [ ] Add JWT to Interceptor
 -   [ ] Display profile
--   [ ] Show/hide based on autentication
+-   [x] Show/hide login and register based on autentication
+-   [ ] Display attended events on profile

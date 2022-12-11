@@ -1,4 +1,43 @@
-<mat-card *ngIf="event">
-  <div>{{ event.name }}</div>
-  <div>{{ event.description }}</div>
-</mat-card>
+<div class="event-container">
+  <mat-card *ngIf="event">
+    <img src="{{ event.imageUrl }}" mat-card-image />
+
+    <mat-card-title-group>
+      <mat-card-title>
+        {{ event.name }}
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        {{ event.location }} {{ event.date }} {{ event.time }}
+      </mat-card-subtitle>
+
+      <mat-card-subtitle>
+        {{ event.price }}
+      </mat-card-subtitle>
+
+      <mat-card-subtitle> </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      {{ event.description }}
+    </mat-card-content>
+    <ng-container
+      *ngTemplateOutlet="true == true ? owner : guest"
+    ></ng-container>
+  </mat-card>
+</div>
+
+<ng-template #owner>
+  <button class="mat-elevation-z4" mat-raised-button color="accent">
+    Edit
+  </button>
+
+  <button class="mat-elevation-z4" mat-raised-button color="accent">
+    Delete
+  </button>
+</ng-template>
+
+<ng-template #guest>
+  <button class="mat-elevation-z4" mat-raised-button color="accent">
+    Attend
+  </button>
+</ng-template>
