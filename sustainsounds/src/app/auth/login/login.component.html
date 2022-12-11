@@ -2,10 +2,10 @@
   <mat-card-title> Login </mat-card-title>
 
   <form
-    #loginForm="ngForm"
+    [formGroup]="loginForm"
     class="login-form"
     color="primary"
-    (ngSubmit)="loginHandler(loginForm)"
+    (ngSubmit)="login()"
   >
     <mat-form-field appearance="outline" color="accent">
       <input
@@ -14,12 +14,11 @@
         name="email"
         id="email"
         type="email"
-        #emailInput="ngModel"
+        formControlName="email"
         required
-        ngModel
       />
       <mat-label for="email">e-mail</mat-label>
-      <mat-error>Ivalid e-mail!</mat-error>
+      <mat-error>e-mail required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent">
       <input
@@ -28,13 +27,19 @@
         name="password"
         id="password"
         type="password"
-        #passwordInput="ngModel"
+        formControlName="password"
         required
-        ngModel
       />
       <mat-label for="password">password</mat-label>
-      <mat-error>no!</mat-error>
+      <mat-error>password required!</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="accent">Details</button>
+    <button
+      mat-raised-button
+      type="submit"
+      color="accent"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
   </form>
 </mat-card>

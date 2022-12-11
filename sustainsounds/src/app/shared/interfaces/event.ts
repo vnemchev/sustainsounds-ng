@@ -5,7 +5,7 @@ export interface IEvent {
   time: string;
   location: string;
   price: number;
-  imageUrl: string;
-  description: string;
+  imageUrl?: string;
+  description?: string;
   _ownerId: string;
 }

@@ -1,11 +1,7 @@
 <mat-card class="form">
-  <mat-card-title class="title"> Create </mat-card-title>
+  <mat-card-title> Create </mat-card-title>
 
-  <form
-    #createForm="ngForm"
-    (ngSubmit)="onSubmit(createForm)"
-    class="create-form"
-  >
+  <form [formGroup]="createForm" class="create-form" (ngSubmit)="create()">
     <mat-form-field class="hi" appearance="outline" color="accent">
       <input
         matInput
@@ -13,40 +9,47 @@
         name="name"
         id="name"
         type="text"
+        formControlName="name"
         required
-        ngModel
       />
 
       <mat-label for="name">name</mat-label>
-      <mat-error>no!</mat-error>
+      <mat-error *ngIf="createForm.get('name')?.errors?.['required']"
+        >event name required!</mat-error
+      >
+      <mat-error *ngIf="createForm.get('name')?.errors?.['minlength']"
+        >event name must be longer than 3 chars!</mat-error
+      >
     </mat-form-field>
 
     <div class="info">
       <mat-form-field class="info-field" appearance="outline" color="accent">
         <input
           matInput
+          readonly
           [matDatepicker]="picker"
           placeholder="20/12/2022"
+          min="{{ currentDate | date : 'yyyy-MM-dd' }}"
           name="date"
           id="date"
           type="text"
+          formControlName="date"
           required
-          ngModel
         />
         <mat-label for="date">date</mat-label>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
+        <mat-error>date is required!</mat-error>
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
         <input
           matInput
-          placeholder=""
           name="time"
           id="time"
           type="time"
+          formControlName="time"
           required
-          ngModel
         />
         <!-- <button matSuffix mat-icon-button aria-label="Clear">
       <mat-icon>close</mat-icon>
@@ -54,7 +57,7 @@
         <mat-icon matSuffix>query_builder</mat-icon>
 
         <mat-label for="time">time</mat-label>
-        <mat-error>no!</mat-error>
+        <mat-error>time is required!</mat-error>
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
@@ -64,13 +67,19 @@
           name="location"
           id="location"
           type="text"
+          formControlName="location"
           required
-          ngModel
         />
         <mat-icon matSuffix>place</mat-icon>
 
         <mat-label for="location">location</mat-label>
-        <mat-error>no!</mat-error>
+
+        <mat-error *ngIf="createForm.get('location')?.errors?.['required']"
+          >location name required!</mat-error
+        >
+        <mat-error *ngIf="createForm.get('location')?.errors?.['minlength']"
+          >location name must be longer than 3 chars!</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
@@ -80,13 +89,13 @@
           name="price"
           id="price"
           type="number"
+          formControlName="price"
           required
-          ngModel
         />
 
         <mat-icon matSuffix>euro</mat-icon>
         <mat-label for="price">price</mat-label>
-        <mat-error>no!</mat-error>
+        <mat-error>price is required!</mat-error>
       </mat-form-field>
     </div>
 
@@ -97,11 +106,13 @@
         name="imageUrl"
         id="imageUrl"
         type="url"
-        ngModel
+        formControlName="imageUrl"
       />
 
       <mat-label for="imageUrl">link to image</mat-label>
-      <mat-error>no!</mat-error>
+      <mat-error *ngIf="createForm.get('imageUrl')?.errors?.['pattern']"
+        >must be valid URL!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
@@ -110,11 +121,23 @@
         placeholder="Ex. The event is called..."
         name="description"
         id="description"
+        formControlName="description"
         rows="6"
       >
       </textarea>
       <mat-label>describe your event</mat-label>
+      <mat-error *ngIf="createForm.get('description')?.errors?.['minlength']"
+        >must be at least 20 chars!</mat-error
+      >
     </mat-form-field>
-    <button mat-raised-button color="accent">I'm done!</button>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="!createForm.valid"
+    >
+      I'm done!
+    </button>
   </form>
 </mat-card>

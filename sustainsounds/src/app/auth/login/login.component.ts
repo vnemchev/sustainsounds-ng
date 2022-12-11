@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -9,15 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
-  loginHandler(form: NgForm): void {
-    if (form.invalid) return console.log('wrong');
+  loginForm = this.fb.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+  });
 
-    this.authService.login(form.value).subscribe({
+  login() {
+    if (this.loginForm.invalid) return console.log('wrong');
+
+    const { email, password } = this.loginForm.value;
+
+    this.authService.login(email as string, password as string).subscribe({
       next(value) {
-        console.log(form);
-        
+        console.log(value);
       },
       error(err) {
         console.log(err);

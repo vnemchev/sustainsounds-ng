@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IEvent } from '../shared/interfaces/event';
+import { IEventPayload } from '../shared/interfaces/configs';
 
 const url = environment.apiURL;
 
@@ -19,7 +20,7 @@ export class EventsService {
     return this.httpClient.get<IEvent[]>(`${url}/events`);
   }
 
-  create(event: IEvent) {
-    return this.httpClient.post(`${url}/events`, event);
+  create(event: IEventPayload) {
+    return this.httpClient.post<IEventPayload>(`${url}/events`, event);
   }
 }
