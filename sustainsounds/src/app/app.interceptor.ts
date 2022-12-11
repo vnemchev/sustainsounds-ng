@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth/auth.service';
+import { IUser } from './shared/interfaces/configs';
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
@@ -25,9 +26,10 @@ export class AppInterceptor implements HttpInterceptor {
 
     const token: string | undefined = this.authService.getToken();
 
-    if (token) {
-      request.headers.append('X-Authorization', `${token as string}`);
-    }
+    if (token)
+      request = request.clone({
+        setHeaders: { 'X-Authorization': token },
+      });
 
     // throw new Error('Method not implemented.');
     return next.handle(request);

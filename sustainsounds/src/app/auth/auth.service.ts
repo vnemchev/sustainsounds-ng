@@ -13,12 +13,19 @@ const url = environment.apiURL;
   providedIn: 'root',
 })
 export class AuthService {
-  user: IUser | null = null;
+  storage: string | null = localStorage.getItem('user');
+  user: IUser | null = JSON.parse(this.storage as any) as IUser;
 
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router) {
+    console.log('storage' + this.storage);
+  }
 
   get isLoggedIn(): boolean {
     return this.user !== null;
+  }
+
+  getToken(): string | undefined {
+    return this.user?.accessToken;
   }
 
   login(email: string, password: string) {
@@ -73,9 +80,5 @@ export class AuthService {
   isOwner(eventId: string): boolean {
     console.log('service' + this.user?._id === eventId);
     return this.user?._id === eventId;
-  }
-
-  getToken() {
-    return this.user?.accessToken;
   }
 }

@@ -35,7 +35,7 @@ router.post('/', isAuth(), async (req, res) => {
             price,
             imageUrl,
             description,
-            // _ownerId: req.user._id,
+            _ownerId: req.user._id,
         };
 
         const result = await eventService.create(data);

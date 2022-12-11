@@ -38,6 +38,8 @@ export class CreateComponent implements OnInit {
       description: this.createForm.value.description as string,
     };
 
+    console.log(typeof payload.price);
+
     this.eventsService.create(payload).subscribe({
       next: (res) => console.log(res),
       error: (err) => console.log(err),
