@@ -20,9 +20,9 @@
     <mat-card-content>
       {{ event.description }}
     </mat-card-content>
-    <ng-container
-      *ngTemplateOutlet="true == true ? owner : guest"
-    ></ng-container>
+    <div *ngIf="isLoggedIn">
+      <ng-container *ngTemplateOutlet="isOwner ? owner : guest"></ng-container>
+    </div>
   </mat-card>
 </div>
 

@@ -5,6 +5,7 @@ import { IArtist } from '../shared/interfaces/artist';
 import { IFan } from '../shared/interfaces/fan';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { IUser } from '../shared/interfaces/configs';
 
 const url = environment.apiURL;
 
@@ -12,9 +13,13 @@ const url = environment.apiURL;
   providedIn: 'root',
 })
 export class AuthService {
+  user: IUser | null = null;
+
   constructor(private httpClient: HttpClient, private router: Router) {}
 
-  loggedIn = false;
+  get isLoggedIn(): boolean {
+    return this.user !== null;
+  }
 
   login(email: string, password: string) {
     const payload = { email, password };
@@ -31,7 +36,10 @@ export class AuthService {
   register(email: string, password: string, repeatPassword: string) {
     const payload = { email, password, repeatPassword };
     return this.httpClient
-      .post<IArtist | IFan>(`${url}/auth/register`, JSON.stringify(payload))
+      .post<IArtist | IFan | IUser>(
+        `${url}/auth/register`,
+        JSON.stringify(payload)
+      )
       .pipe(
         tap((res) => {
           this.setSession(res);
@@ -52,15 +60,18 @@ export class AuthService {
 
   setSession(authResponse: any): void {
     localStorage.setItem('user', JSON.stringify(authResponse));
-    this.loggedIn = true;
+    const jsonuser: string | null = localStorage.getItem('user');
+    const user = JSON.parse(jsonuser as string);
+    this.user = user;
   }
 
   clearSession(): void {
     localStorage.removeItem('user');
-    this.loggedIn = false;
+    this.user = null;
   }
 
-  get isLoggedIn(): boolean {
-    return this.loggedIn == true;
+  isOwner(eventId: string): boolean {
+    console.log('service' + this.user?._id === eventId);
+    return this.user?._id === eventId;
   }
 }

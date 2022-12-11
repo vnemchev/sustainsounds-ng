@@ -7,3 +7,11 @@ export interface IEventPayload {
   imageUrl: string | undefined;
   description: string | undefined;
 }
+
+export interface IUser {
+  _id: string;
+  accessToken: string;
+  email: string;
+  eventsAttended?: string[];
+  alias?: string;
+}
