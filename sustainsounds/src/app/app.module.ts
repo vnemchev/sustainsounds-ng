@@ -16,10 +16,10 @@ import { appInterceptorProvider } from './app.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CoreModule,
     AuthModule,
     ArtistsModule,
     EventsModule,
-    CoreModule,
     SharedModule,
     BrowserModule,
     BrowserAnimationsModule,

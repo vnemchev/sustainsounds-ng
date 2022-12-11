@@ -1,11 +1,27 @@
 <mat-toolbar class="navbar" color="accent">
   <nav>
-    <a routerLink="/">*sustainsounds</a>
-    <a routerLink="/events">events</a>
-    <a routerLink="/artists">artists</a>
-    <a routerLink="/auth/login">login</a>
-    <a routerLink="/auth/register">register</a>
-    <a routerLink="/auth/logout">logout</a>
-    <a routerLink="/events/create">create</a>
+    
+      <ng-container>
+        <a routerLink="/">*sustainsounds</a>
+        <a routerLink="/events">events</a>
+        <a routerLink="/artists">artists</a>
+        <a routerLink="/events/create">create</a>
+      </ng-container>
+
+
+    
+      <ng-container
+        *ngTemplateOutlet="isLoggedIn ? loggedInTemplate : loggedOutTemplate"
+      ></ng-container>
+
   </nav>
 </mat-toolbar>
+
+<ng-template #loggedOutTemplate>
+  <a routerLink="/auth/login">login</a>
+  <a routerLink="/auth/register">register</a>
+</ng-template>
+
+<ng-template #loggedInTemplate>
+  <a routerLink="/auth/logout">logout</a>
+</ng-template>
