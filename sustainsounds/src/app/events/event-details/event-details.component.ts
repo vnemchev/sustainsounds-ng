@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 import { IEvent } from 'src/app/shared/interfaces/event';
@@ -11,15 +11,16 @@ import { EventsService } from '../events.service';
   styleUrls: ['./event-details.component.css'],
 })
 export class EventDetailsComponent implements OnInit {
-  eventId!: string;
   event: IEvent | null = null;
-  errorFetchingData = false;
+  eventId!: string;
   isOwner: boolean | null = null;
+  errorFetchingData = false;
 
   constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private eventsService: EventsService,
-    private activatedRoute: ActivatedRoute
+    private eventsService: EventsService
   ) {}
 
   ngOnInit(): void {
@@ -40,4 +41,10 @@ export class EventDetailsComponent implements OnInit {
   get isLoggedIn() {
     return this.authService.isLoggedIn;
   }
+
+  onEdit() {
+    this.router.navigate([`/events/${this.eventId}/edit`]);
+  }
+
+  onDelete() {}
 }

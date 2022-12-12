@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, Validators } from '@angular/forms';
-import { IEventPayload } from 'src/app/shared/interfaces/configs';
+
 import { EventsService } from '../events.service';
+import { IEventPayload } from 'src/app/shared/interfaces/configs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,12 @@ import { EventsService } from '../events.service';
 })
 export class CreateComponent implements OnInit {
   currentDate: any = new Date();
-  constructor(private fb: FormBuilder, private eventsService: EventsService) {}
+
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private eventsService: EventsService
+  ) {}
 
   createForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,10 +44,8 @@ export class CreateComponent implements OnInit {
       description: this.createForm.value.description as string,
     };
 
-    console.log(typeof payload.price);
-
     this.eventsService.create(payload).subscribe({
-      next: (res) => console.log(res),
+      next: (res) => this.router.navigate(['/events']),
       error: (err) => console.log(err),
     });
   }

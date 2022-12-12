@@ -37,11 +37,21 @@
 </div>
 
 <ng-template #owner>
-  <button class="mat-elevation-z4" mat-raised-button color="accent">
+  <button
+    class="mat-elevation-z4"
+    mat-raised-button
+    color="accent"
+    (click)="onEdit()"
+  >
     Edit
   </button>
 
-  <button class="mat-elevation-z4" mat-raised-button color="accent">
+  <button
+    class="mat-elevation-z4"
+    mat-raised-button
+    color="accent"
+    (click)="onEdit()"
+  >
     Delete
   </button>
 </ng-template>

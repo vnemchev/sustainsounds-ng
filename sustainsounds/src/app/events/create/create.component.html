@@ -3,6 +3,7 @@
 
   <form [formGroup]="createForm" class="create-form" (ngSubmit)="create()">
     <mat-form-field class="hi" appearance="outline" color="accent">
+      <mat-label for="name">name</mat-label>
       <input
         matInput
         placeholder="Woodstock"
@@ -12,8 +13,6 @@
         formControlName="name"
         required
       />
-
-      <mat-label for="name">name</mat-label>
       <mat-error *ngIf="createForm.get('name')?.errors?.['required']"
         >event name required!</mat-error
       >
@@ -24,11 +23,12 @@
 
     <div class="info">
       <mat-form-field class="info-field" appearance="outline" color="accent">
+        <mat-label for="date">date</mat-label>
         <input
           matInput
+          placeholder="20/12/2022"
           readonly
           [matDatepicker]="picker"
-          placeholder="20/12/2022"
           min="{{ currentDate | date : 'yyyy-MM-dd' }}"
           name="date"
           id="date"
@@ -36,13 +36,13 @@
           formControlName="date"
           required
         />
-        <mat-label for="date">date</mat-label>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error>date is required!</mat-error>
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
+        <mat-label for="time">time</mat-label>
         <input
           matInput
           name="time"
@@ -51,16 +51,12 @@
           formControlName="time"
           required
         />
-        <!-- <button matSuffix mat-icon-button aria-label="Clear">
-      <mat-icon>close</mat-icon>
-    </button> -->
         <mat-icon matSuffix>query_builder</mat-icon>
-
-        <mat-label for="time">time</mat-label>
         <mat-error>time is required!</mat-error>
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
+        <mat-label for="location">location</mat-label>
         <input
           matInput
           placeholder="Stonehenge"
@@ -71,9 +67,6 @@
           required
         />
         <mat-icon matSuffix>place</mat-icon>
-
-        <mat-label for="location">location</mat-label>
-
         <mat-error *ngIf="createForm.get('location')?.errors?.['required']"
           >location name required!</mat-error
         >
@@ -83,6 +76,7 @@
       </mat-form-field>
 
       <mat-form-field class="info-field" appearance="outline" color="accent">
+        <mat-label for="price">price</mat-label>
         <input
           matInput
           placeholder="17"
@@ -92,14 +86,13 @@
           formControlName="price"
           required
         />
-
         <mat-icon matSuffix>euro</mat-icon>
-        <mat-label for="price">price</mat-label>
         <mat-error>price is required!</mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline" color="accent">
+      <mat-label for="imageUrl">link to image</mat-label>
       <input
         matInput
         placeholder="https://www.behance.net/gallery/158161911/I-..."
@@ -108,14 +101,13 @@
         type="url"
         formControlName="imageUrl"
       />
-
-      <mat-label for="imageUrl">link to image</mat-label>
       <mat-error *ngIf="createForm.get('imageUrl')?.errors?.['pattern']"
         >must be valid URL!</mat-error
       >
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
+      <mat-label>describe your event</mat-label>
       <textarea
         matInput
         placeholder="Ex. The event is called..."
@@ -125,7 +117,6 @@
         rows="6"
       >
       </textarea>
-      <mat-label>describe your event</mat-label>
       <mat-error *ngIf="createForm.get('description')?.errors?.['minlength']"
         >must be at least 20 chars!</mat-error
       >

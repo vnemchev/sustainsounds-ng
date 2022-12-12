@@ -13,12 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
   {
     path: '**',
-    redirectTo: '/not-found'
-  }
+    redirectTo: '/not-found',
+  },
 ];
 
 @NgModule({
