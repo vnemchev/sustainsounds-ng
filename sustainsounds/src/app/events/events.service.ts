@@ -23,4 +23,12 @@ export class EventsService {
   create(event: IEventPayload) {
     return this.httpClient.post<IEventPayload>(`${url}/events`, event);
   }
+
+  edit(id: string, event: IEventPayload) {
+    return this.httpClient.put<IEventPayload>(`${url}/events/${id}`, event);
+  }
+
+  delete(id: string) {
+    return this.httpClient.delete<IEvent>(`${url}/events/${id}`);
+  }
 }

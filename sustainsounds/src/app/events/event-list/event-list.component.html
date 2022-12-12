@@ -6,7 +6,7 @@
     (click)="onDetailsClick(event._id)"
   >
     <mat-card-title-group>
-      <img src="{{ event.imageUrl }}" mat-card-avatar />
+      <img *ngIf="event.imageUrl" src="{{ event.imageUrl }}" mat-card-avatar />
 
       <mat-card-title>
         {{ event.name }}

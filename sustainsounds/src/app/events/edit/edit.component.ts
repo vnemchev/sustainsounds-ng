@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IEvent } from 'src/app/shared/interfaces/event';
 import { EventsService } from '../events.service';
 
@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
   errorFetchingData = false;
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private eventsService: EventsService,
     private activatedRoute: ActivatedRoute
@@ -56,8 +57,21 @@ export class EditComponent implements OnInit {
   }
 
   edit(): void {
-    console.log(this.editForm.errors);
+    if (this.editForm.invalid) return;
 
-    console.log(this.editForm.value.date);
+    const payload = {
+      name: this.editForm.value.name as string,
+      date: this.editForm.value.date as string,
+      time: this.editForm.value.time as string,
+      location: this.editForm.value.location as string,
+      price: this.editForm.value.price as unknown as number,
+      imageUrl: this.editForm.value.imageUrl as string,
+      description: this.editForm.value.description as string,
+    };
+
+    this.eventsService.edit(this.eventId, payload).subscribe({
+      next: (res) => this.router.navigate(['/events']),
+      error: (err) => console.log(err),
+    });
   }
 }

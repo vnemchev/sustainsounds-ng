@@ -35,6 +35,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatDatepickerModule,
   ],
-  exports: [EventListComponent, CreateComponent],
+  exports: [EventListComponent, CreateComponent, EditComponent],
 })
 export class EventsModule {}
