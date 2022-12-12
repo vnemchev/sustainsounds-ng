@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IEvent } from 'src/app/shared/interfaces/event';
@@ -9,7 +9,7 @@ import { EventsService } from '../events.service';
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.css'],
 })
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit, OnDestroy {
   eventsList: IEvent[] | null = null;
   errorFetchingData = false;
 
@@ -25,6 +25,10 @@ export class EventListComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.eventsList = null;
   }
 
   onDetailsClick(id: string): void {

@@ -46,5 +46,15 @@ export class EventDetailsComponent implements OnInit {
     this.router.navigate([`/events/${this.eventId}/edit`]);
   }
 
-  onDelete() {}
+  onDelete() {
+    this.eventsService.delete(this.eventId).subscribe({
+      next: (res) => console.log(res),
+      error: (err) => console.log(err),
+    });
+    this.router.navigate(['/events']);
+  }
+
+  onBack() {
+    this.router.navigate(['/events']);
+  }
 }

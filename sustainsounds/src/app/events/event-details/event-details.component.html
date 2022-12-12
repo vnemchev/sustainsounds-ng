@@ -29,7 +29,12 @@
         ></ng-container>
       </div>
 
-      <button class="mat-elevation-z4" mat-raised-button color="primary">
+      <button
+        class="mat-elevation-z4"
+        mat-raised-button
+        color="primary"
+        (click)="onBack()"
+      >
         Back
       </button>
     </mat-card-actions>
@@ -50,7 +55,7 @@
     class="mat-elevation-z4"
     mat-raised-button
     color="accent"
-    (click)="onEdit()"
+    (click)="onDelete()"
   >
     Delete
   </button>

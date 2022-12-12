@@ -1,7 +1,7 @@
 # TODO:
 
 -   [x] Details
--   [ ] Edit
+-   [x] Edit
 -   [ ] Delete
 -   [ ] Display profile
 -   [x] Add JWT to Interceptor
