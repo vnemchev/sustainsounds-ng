@@ -11,11 +11,27 @@ const url = environment.apiURL;
 export class ArtistsService {
   constructor(private httpClient: HttpClient) {}
 
-  getOne(id: string) {
+  getAllArtists() {
+    return this.httpClient.get<IArtist[]>(`${url}/users/artists`);
+  }
+
+  getOneArtist(id: string) {
     return this.httpClient.get<IArtist>(`${url}/users/artists/${id}`);
   }
 
-  getAll() {
-    return this.httpClient.get<IArtist[]>(`${url}/users/artists`);
+  getOneArtistDetailed(id: string) {
+    return this.httpClient.get<IArtist>(`${url}/users/artists/${id}/detailed`);
+  }
+
+  getOneFanDetailed(id: string) {
+    return this.httpClient.get<IArtist>(`${url}/users/fans/${id}/detailed`);
+  }
+
+  editArtist(id: string, artist: IArtist) {
+    return this.httpClient.put<IArtist>(`${url}/users/artists/${id}`, artist);
+  }
+
+  attendEvent(userId: string, eventId: string) {
+    return this.httpClient.get<IArtist>(`${url}/users/${userId}/${eventId}`);
   }
 }

@@ -12,10 +12,9 @@ import { AuthModule } from './auth/auth.module';
 import { ArtistsModule } from './artists/artists.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { appInterceptorProvider } from './app.interceptor';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, ProfileComponent],
+  declarations: [AppComponent],
   imports: [
     CoreModule,
     AuthModule,

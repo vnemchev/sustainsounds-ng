@@ -21,7 +21,7 @@ export class ArtistDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.artistId = this.activatedRoute.snapshot.params['id'];
 
-    this.artistsService.getOne(this.artistId).subscribe({
+    this.artistsService.getOneArtist(this.artistId).subscribe({
       next: (value) => {
         this.artist = value;
         console.log(this.artist);
