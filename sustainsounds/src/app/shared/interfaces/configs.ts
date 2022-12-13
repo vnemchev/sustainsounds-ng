@@ -13,5 +13,6 @@ export interface IUser {
   accessToken: string;
   email: string;
   eventsAttended?: string[];
+  eventsCreated?: string[];
   alias?: string;
 }
