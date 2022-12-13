@@ -11,17 +11,17 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
-import { CreateComponent } from './create/create.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 import { EventsRoutingModule } from './events-routing.module';
-import { EditComponent } from './edit/edit.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     EventListComponent,
     EventDetailsComponent,
-    CreateComponent,
-    EditComponent,
+    EventCreateComponent,
+    EventEditComponent,
   ],
   imports: [
     EventsRoutingModule,
@@ -35,6 +35,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatDatepickerModule,
   ],
-  exports: [EventListComponent, CreateComponent, EditComponent],
+  exports: [EventListComponent, EventCreateComponent, EventEditComponent],
 })
 export class EventsModule {}

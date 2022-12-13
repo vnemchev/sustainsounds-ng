@@ -6,11 +6,11 @@ import { IEventPayload } from 'src/app/shared/interfaces/configs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  selector: 'app-event-create',
+  templateUrl: './event-create.component.html',
+  styleUrls: ['./event-create.component.css'],
 })
-export class CreateComponent implements OnInit {
+export class EventCreateComponent implements OnInit {
   currentDate: any = new Date();
 
   constructor(

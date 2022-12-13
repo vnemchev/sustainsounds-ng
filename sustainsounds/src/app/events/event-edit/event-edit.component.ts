@@ -5,11 +5,11 @@ import { IEvent } from 'src/app/shared/interfaces/event';
 import { EventsService } from '../events.service';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css'],
+  selector: 'app-event-edit',
+  templateUrl: './event-edit.component.html',
+  styleUrls: ['./event-edit.component.css'],
 })
-export class EditComponent implements OnInit {
+export class EventEditComponent implements OnInit {
   event: IEvent | null = null;
   eventId!: string;
   currentDate: any = new Date();

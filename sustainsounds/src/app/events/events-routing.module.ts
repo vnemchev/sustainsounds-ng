@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateComponent } from './create/create.component';
-import { EditComponent } from './edit/edit.component';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventListComponent } from './event-list/event-list.component';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'events/create',
     title: 'Create Event',
-    component: CreateComponent,
+    component: EventCreateComponent,
   },
   {
     path: 'events/:id',
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'events/:id/edit',
     title: 'Edit Event',
-    component: EditComponent,
+    component: EventEditComponent,
   },
 ];
 
