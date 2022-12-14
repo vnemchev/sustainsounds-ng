@@ -1,22 +1,30 @@
 ## Checklist:
 
-    [x] Details
     [x] Event list
     [x] Event details
-    [x] Create
-    [x] Edit
-    [x] Delete
-    [x] Details
+    [x] Event create
+    [x] Event edit
+    [x] Event delete
+    [x] Event attend
     [x] Add JWT to Interceptor
     [x] Show/hide login and register based on autentication
     [x] Get info for profile
-    [ ] Display profile based on if artist or fan
-    [ ] Display attended events on profile
-    [x] Attend event
+    [x] Display profile based on if artist or fan
+    [x] Display attended and created events on profile
+    [ ] Edit profile for artist
+    [ ] Artist details
+    [ ] Display artist's events
     [ ] Return something from the backend to show event is attended
     [ ] Error handling
     [ ] Lazy loading
     [ ] Fix interfaces
+    [ ] CSS
+        [ ] Fix profile event cards
+        [ ] Fix buttons everywhere
+        [ ] Add default pic for fan profile
+        [ ] Display profile badge on navbar
+    [ ] Documentation
+    [ ] Seed some data
 
 ```js
 const s = 12.5;
