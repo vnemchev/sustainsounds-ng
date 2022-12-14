@@ -1,0 +1,122 @@
+<div *ngIf="detailedArtist || detailedFan" class="profile-container">
+  <ng-container *ngTemplateOutlet="isArtist ? artist : fan"></ng-container>
+</div>
+
+<ng-template #artist>
+  <mat-card>
+    <mat-card-title>
+      {{ detailedArtist!.alias }}
+      <mat-card-subtitle>
+        Genre: {{ detailedArtist!.genre }}
+      </mat-card-subtitle>
+    </mat-card-title>
+    <mat-card-content *ngIf="detailedArtist!.bio">
+      {{ detailedArtist?.bio }}
+    </mat-card-content>
+  </mat-card>
+
+  <section
+    *ngIf="detailedArtist?.eventsCreated?.length; else noCreated"
+    class="created"
+  >
+    <mat-card *ngFor="let event of eventsCreated">
+      <mat-card-title-group>
+        <img
+          *ngIf="event.imageUrl"
+          src="{{ event.imageUrl }}"
+          mat-card-avatar
+        />
+
+        <mat-card-title>
+          {{ event.name }}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          {{ event.location }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <!-- <mat-card-actions> -->
+        <button class="mat-elevation-z4" mat-raised-button color="accent">
+          See more!
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section
+    *ngIf="detailedArtist!.eventsAttended?.length; else noAttended"
+    class="attended"
+  >
+    <mat-card *ngFor="let event of eventsCreated">
+      <mat-card-title-group>
+        <img
+          *ngIf="event.imageUrl"
+          src="{{ event.imageUrl }}"
+          mat-card-avatar
+        />
+
+        <mat-card-title>
+          {{ event.name }}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          {{ event.location }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <!-- <mat-card-actions> -->
+        <button class="mat-elevation-z4" mat-raised-button color="accent">
+          See more!
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</ng-template>
+
+<ng-template #fan>
+  <mat-card>
+    <mat-card-title>
+      {{ detailedFan!.email }}
+    </mat-card-title>
+  </mat-card>
+  <section
+    *ngIf="detailedFan!.eventsAttended?.length; else noAttended"
+    class="attended"
+  >
+    <mat-card *ngFor="let event of eventsAttended">
+      <mat-card-title-group>
+        <img
+          *ngIf="event.imageUrl"
+          src="{{ event.imageUrl }}"
+          mat-card-avatar
+        />
+
+        <mat-card-title>
+          {{ event.name }}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          {{ event.location }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <!-- <mat-card-actions> -->
+        <button class="mat-elevation-z4" mat-raised-button color="accent">
+          See more!
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</ng-template>
+
+<ng-template #noAttended>
+  <h1>No events attended yet!</h1>
+</ng-template>
+
+<ng-template #noCreated>
+  <h1>No events created yet!</h1>
+</ng-template>

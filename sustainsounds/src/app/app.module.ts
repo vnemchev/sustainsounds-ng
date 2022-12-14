@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { ArtistsModule } from './artists/artists.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { appInterceptorProvider } from './app.interceptor';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { appInterceptorProvider } from './app.interceptor';
     HttpClientModule,
     MatNativeDateModule,
     AppRoutingModule,
+    ProfileModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent],

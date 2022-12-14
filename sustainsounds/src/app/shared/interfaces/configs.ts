@@ -15,4 +15,5 @@ export interface IUser {
   eventsAttended?: string[];
   eventsCreated?: string[];
   alias?: string;
+  bio?: string;
 }

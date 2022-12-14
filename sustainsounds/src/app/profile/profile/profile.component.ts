@@ -3,6 +3,7 @@ import { ArtistsService } from 'src/app/artists/artists.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IArtist } from 'src/app/shared/interfaces/artist';
 import { IUser } from 'src/app/shared/interfaces/configs';
+import { IEvent } from 'src/app/shared/interfaces/event';
 import { IFan } from 'src/app/shared/interfaces/fan';
 
 @Component({
@@ -17,8 +18,12 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   user: IUser | null = this.authService.user;
-  detailedUser: IArtist | IFan | null = null;
   isArtist: boolean = this.user?.alias !== undefined;
+
+  detailedFan: IFan | null = null;
+  detailedArtist: IArtist | null = null;
+  eventsAttended: IEvent[] = [];
+  eventsCreated: IEvent[] = [];
 
   ngOnInit(): void {
     if (this.isArtist) {
@@ -26,8 +31,10 @@ export class ProfileComponent implements OnInit {
         .getOneArtistDetailed(this.user?._id as string)
         .subscribe({
           next: (value) => {
-            this.detailedUser = value;
-            console.log(this.detailedUser);
+            console.log(value);
+            this.detailedArtist = value;
+            this.eventsCreated = value.eventsCreated as any as IEvent[];
+            this.eventsAttended = value.eventsAttended as any as IEvent[];
           },
           error: (err) => {
             console.log(err);
@@ -36,15 +43,13 @@ export class ProfileComponent implements OnInit {
     } else {
       this.userService.getOneFanDetailed(this.user?._id as string).subscribe({
         next: (value) => {
-          this.detailedUser = value;
-          console.log(this.detailedUser);
+          this.detailedFan = value;
+          this.eventsAttended = value.eventsAttended as any as IEvent[];
         },
         error: (err) => {
           console.log(err);
         },
       });
     }
-
-    console.log(typeof this.detailedUser)
   }
 }
