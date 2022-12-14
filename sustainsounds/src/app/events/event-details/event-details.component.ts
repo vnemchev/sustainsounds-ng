@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ArtistsService } from 'src/app/artists/artists.service';
 import { AuthService } from 'src/app/auth/auth.service';
 
 import { IEvent } from 'src/app/shared/interfaces/event';
@@ -20,7 +21,8 @@ export class EventDetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private eventsService: EventsService
+    private eventsService: EventsService,
+    private userService: ArtistsService
   ) {}
 
   ngOnInit(): void {
@@ -38,23 +40,29 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
-  get isLoggedIn() {
+  get isLoggedIn(): boolean {
     return this.authService.isLoggedIn;
   }
 
-  onEdit() {
+  onAttend() {
+    this.userService
+      .attendEvent(this.authService.user?._id as string, this.eventId)
+      .subscribe({
+        next: (res) => console.log(res),
+        error: (err) => console.log(err),
+      });
+  }
+
+  onEdit(): void {
     this.router.navigate([`/events/${this.eventId}/edit`]);
   }
 
-  onDelete() {
-    this.eventsService.delete(this.eventId).subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err),
-    });
+  onDelete(): void {
+    this.eventsService.delete(this.eventId).subscribe({});
     this.router.navigate(['/events']);
   }
 
-  onBack() {
+  onBack(): void {
     this.router.navigate(['/events']);
   }
 }

@@ -62,7 +62,12 @@
 </ng-template>
 
 <ng-template #guest>
-  <button class="mat-elevation-z4" mat-raised-button color="accent">
+  <button
+    class="mat-elevation-z4"
+    mat-raised-button
+    color="accent"
+    (click)="onAttend()"
+  >
     Attend
   </button>
 </ng-template>

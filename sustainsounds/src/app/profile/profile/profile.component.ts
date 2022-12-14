@@ -44,5 +44,7 @@ export class ProfileComponent implements OnInit {
         },
       });
     }
+
+    console.log(typeof this.detailedUser)
   }
 }

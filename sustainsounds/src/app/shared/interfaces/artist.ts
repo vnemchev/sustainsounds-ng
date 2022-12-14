@@ -4,6 +4,7 @@ export interface IArtist {
   alias: string;
   genre?: string;
   imageUrl?: string;
+  bio?: string;
   eventsAttended?: string[];
   eventsCreated?: string[];
 }

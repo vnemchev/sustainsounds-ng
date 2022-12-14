@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditComponent } from './edit/edit.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [
-    EditComponent,
-    ProfileEditComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileComponent, ProfileEditComponent],
+  imports: [CommonModule, MatCardModule],
+  exports: [ProfileComponent, ProfileEditComponent],
 })
-export class ProfileModule { }
+export class ProfileModule {}
