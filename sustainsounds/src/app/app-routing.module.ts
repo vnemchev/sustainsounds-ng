@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { ProfileComponent } from './profile/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -15,10 +14,6 @@ const routes: Routes = [
   {
     path: 'not-found',
     component: NotFoundComponent,
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
   },
   {
     path: '**',

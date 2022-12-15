@@ -16,6 +16,8 @@
     [ ] Display artist's events
     [ ] Return something from the backend to show event is attended
     [ ] Error handling
+    [ ] 404 page
+    [ ] Home page
     [ ] Lazy loading
     [ ] Fix interfaces
     [ ] CSS

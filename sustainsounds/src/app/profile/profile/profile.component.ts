@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ArtistsService } from 'src/app/artists/artists.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IArtist } from 'src/app/shared/interfaces/artist';
@@ -13,6 +14,7 @@ import { IFan } from 'src/app/shared/interfaces/fan';
 })
 export class ProfileComponent implements OnInit {
   constructor(
+    private router: Router,
     private authService: AuthService,
     private userService: ArtistsService
   ) {}
@@ -51,5 +53,9 @@ export class ProfileComponent implements OnInit {
         },
       });
     }
+  }
+
+  onEdit(): void {
+    this.router.navigate(['/profile/edit']);
   }
 }
