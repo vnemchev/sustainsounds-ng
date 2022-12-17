@@ -63,6 +63,7 @@
 
 <ng-template #guest>
   <button
+    *ngIf="!hasAttended"
     class="mat-elevation-z4"
     mat-raised-button
     color="accent"

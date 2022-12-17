@@ -40,8 +40,14 @@ export class AuthService {
       );
   }
 
-  register(email: string, password: string, repeatPassword: string) {
-    const payload = { email, password, repeatPassword };
+  register(
+    email: string,
+    password: string,
+    repeatPassword: string,
+    alias?: string | undefined
+  ) {
+    const payload = { email, password, repeatPassword, alias };
+
     return this.httpClient
       .post<IArtist | IFan | IUser>(
         `${url}/auth/register`,

@@ -1,15 +1,21 @@
 .artist-container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  mat-card {
-    width: 30rem;
-  }
-  
-  mat-card-actions {
-    display: flex;
-  }
-  
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card {
+  width: 30rem;
+}
+
+mat-card-actions {
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+

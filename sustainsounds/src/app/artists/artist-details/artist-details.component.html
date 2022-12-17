@@ -34,6 +34,7 @@
         Back
       </button>
     </mat-card-actions>
+    <h2 *ngIf="eventsCreated.length">Catch them at:</h2>
     <ul *ngFor="let event of eventsCreated">
       <li (click)="onNavigate(event._id)">{{ event.name }}</li>
     </ul>

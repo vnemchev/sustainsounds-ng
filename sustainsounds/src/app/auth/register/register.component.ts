@@ -34,10 +34,15 @@ export class RegisterComponent implements OnInit {
     )
       return;
 
-    const { email, password, repeatPassword } = this.registerForm.value;
+    const { email, password, repeatPassword, alias } = this.registerForm.value;
 
     this.authService
-      .register(email as string, password as string, repeatPassword as string)
+      .register(
+        email as string,
+        password as string,
+        repeatPassword as string,
+        alias as string
+      )
       .subscribe({
         next(value) {
           console.log(value);
