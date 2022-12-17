@@ -10,6 +10,7 @@ mat-card-actions {
 }
 
 mat-card {
+  position: relative;
   width: 30rem;
   background-color: transparent;
   background-color: rgba(66, 66, 66, 0.3);
@@ -19,7 +20,13 @@ mat-card {
   transition: all 0.9s 0s ease;
 }
 
-mat-card-actions {
+mat-card-actions div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.back {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }

@@ -33,6 +33,10 @@
       <mat-label for="password">password</mat-label>
       <mat-error>password required!</mat-error>
     </mat-form-field>
+
+    <mat-error class="login-error" *ngIf="loginError"
+      >email or password incorrect!</mat-error
+    >
     <button
       mat-raised-button
       type="submit"

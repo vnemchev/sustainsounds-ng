@@ -25,3 +25,8 @@ mat-checkbox {
   align-items: center; */
   margin-bottom: 20px;
 }
+
+.password-error,
+.username-error {
+  margin: 0 auto 1rem;
+}

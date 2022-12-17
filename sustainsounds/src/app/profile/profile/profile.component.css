@@ -23,9 +23,6 @@ mat-card.profile {
   margin: 0 auto;
 }
 
-mat-card .profile-pic {
-}
-
 .created,
 .attended {
   display: flex;

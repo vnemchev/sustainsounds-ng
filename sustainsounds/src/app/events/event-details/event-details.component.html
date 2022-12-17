@@ -28,16 +28,17 @@
           *ngTemplateOutlet="isOwner ? owner : guest"
         ></ng-container>
       </div>
-
-      <button
-        class="mat-elevation-z4"
-        mat-raised-button
-        color="primary"
-        (click)="onBack()"
-      >
-        Back
-      </button>
     </mat-card-actions>
+
+    <button
+      mat-fab
+      class="mat-elevation-z4 back"
+      mat-raised-button
+      color="primary"
+      (click)="onBack()"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </mat-card>
 </div>
 

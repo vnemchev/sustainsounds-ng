@@ -8,6 +8,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  loginError = false;
+
   constructor(private authService: AuthService, private fb: FormBuilder) {}
 
   loginForm = this.fb.group({
@@ -21,11 +23,11 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
 
     this.authService.login(email as string, password as string).subscribe({
-      next(value) {
+      next: (value) => {
         console.log(value);
       },
-      error(err) {
-        console.log(err);
+      error: (err) => {
+        this.loginError = true;
       },
     });
   }

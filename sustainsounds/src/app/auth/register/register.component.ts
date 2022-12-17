@@ -9,6 +9,8 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   checked = false;
+  passwordError = false;
+  usernameTaken = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
@@ -29,8 +31,10 @@ export class RegisterComponent {
     if (
       this.registerForm.value.password !==
       this.registerForm.value.repeatPassword
-    )
+    ) {
+      this.passwordError = true;
       return;
+    }
 
     const { email, password, repeatPassword, alias } = this.registerForm.value;
 
@@ -42,11 +46,11 @@ export class RegisterComponent {
         alias as string
       )
       .subscribe({
-        next(value) {
+        next: (value) => {
           console.log(value);
         },
-        error(err) {
-          console.log(err);
+        error: (err) => {
+          this.usernameTaken = true;
         },
       });
   }

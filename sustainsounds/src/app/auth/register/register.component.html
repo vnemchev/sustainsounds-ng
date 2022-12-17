@@ -86,6 +86,13 @@
         >alias must be at least 2 chars!</mat-error
       >
     </mat-form-field>
+    <mat-error *ngIf="passwordError" class="password-error"
+      >passwords must match!</mat-error
+    >
+
+    <mat-error *ngIf="usernameTaken" class="username-error"
+      >user already exists!</mat-error
+    >
 
     <button
       mat-raised-button
