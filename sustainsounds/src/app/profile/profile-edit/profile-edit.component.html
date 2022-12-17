@@ -1,1 +1,84 @@
-<p>profile-edit works!</p>
+<mat-card class="form">
+  <mat-card-title> Create </mat-card-title>
+
+  <form [formGroup]="editForm" class="edit-form" (ngSubmit)="edit()">
+    <mat-form-field class="info-field" appearance="outline" color="accent">
+      <mat-label for="alias">alias</mat-label>
+      <input
+        matInput
+        placeholder="Woodstock"
+        name="alias"
+        id="alias"
+        type="text"
+        formControlName="alias"
+        required
+      />
+      <mat-error *ngIf="editForm.get('alias')?.errors?.['required']"
+        >event name required!</mat-error
+      >
+      <mat-error *ngIf="editForm.get('alias')?.errors?.['minlength']"
+        >event name must be longer than 3 chars!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="info-field" appearance="outline" color="accent">
+      <mat-label for="genre">genre</mat-label>
+      <input
+        matInput
+        placeholder="Metal"
+        name="genre"
+        id="genre"
+        type="text"
+        formControlName="genre"
+        required
+      />
+      <mat-error *ngIf="editForm.get('alias')?.errors?.['required']"
+        >event name required!</mat-error
+      >
+      <mat-error *ngIf="editForm.get('alias')?.errors?.['minlength']"
+        >event name must be longer than 3 chars!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label for="imageUrl">link to image</mat-label>
+      <input
+        matInput
+        placeholder="https://www.behance.net/gallery/158161911/I-..."
+        name="imageUrl"
+        id="imageUrl"
+        type="url"
+        formControlName="imageUrl"
+      />
+      <mat-error *ngIf="editForm.get('imageUrl')?.errors?.['pattern']"
+        >must be valid URL!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label for="bio">bio</mat-label>
+      <textarea
+        matInput
+        placeholder="Ex. From Berlin, Germany..."
+        name="bio"
+        id="bio"
+        formControlName="bio"
+        rows="6"
+      >
+      </textarea>
+      <mat-error *ngIf="editForm.get('bio')?.errors?.['minlength']"
+        >must be at least 20 chars!</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="!editForm.valid"
+      (click)="edit()"
+    >
+      I'm done!
+    </button>
+  </form>
+</mat-card>

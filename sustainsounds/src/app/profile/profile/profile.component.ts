@@ -56,6 +56,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onEdit(): void {
-    this.router.navigate(['/profile/edit']);
+    this.router.navigate([`/profile/edit/${this.detailedArtist?._id}`]);
   }
 }

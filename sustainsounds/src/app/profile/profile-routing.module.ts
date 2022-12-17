@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ProfileComponent,
   },
   {
-    path: 'profile/edit',
+    path: 'profile/edit/:id',
     title: 'Edit Profile',
     component: ProfileEditComponent,
   },

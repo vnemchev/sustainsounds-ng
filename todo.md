@@ -11,7 +11,7 @@
     [x] Get info for profile
     [x] Display profile based on if artist or fan
     [x] Display attended and created events on profile
-    [ ] Edit profile for artist
+    [x] Edit profile for artist
     [ ] Artist details
     [ ] Display artist's events
     [ ] Return something from the backend to show event is attended
