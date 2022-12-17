@@ -9,6 +9,7 @@ import { ArtistListComponent } from './artist-list/artist-list.component';
 import { ArtistsService } from './artists.service';
 import { ArtistsRoutingModule } from './artists-routing.module';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [ArtistListComponent, ArtistDetailsComponent],
@@ -19,6 +20,7 @@ import { ArtistDetailsComponent } from './artist-details/artist-details.componen
     MatCardModule,
     MatButtonModule,
     ArtistsRoutingModule,
+    MatIconModule,
   ],
   exports: [ArtistListComponent],
 })

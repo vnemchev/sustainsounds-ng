@@ -15,14 +15,13 @@
     [x] Artist details
     [x] Display artist's events
     [ ] Error handling
-    [ ] 404 page
+    [x] 404 page
     [ ] Home page
     [ ] Lazy loading
-    [ ] Fix interfaces
     [ ] CSS
-        [ ] Fix profile event cards
+        [x] Fix profile event cards
         [ ] Fix buttons everywhere
-        [ ] Add default pic for fan profile
+        [x] Add default pic for fan profile
         [ ] Display profile badge on navbar
     [ ] Documentation
     [ ] Seed some data

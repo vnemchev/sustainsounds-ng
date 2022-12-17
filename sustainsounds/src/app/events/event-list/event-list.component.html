@@ -1,10 +1,5 @@
 <div class="events-container">
-  <mat-card
-    class="event-card"
-    role="region"
-    *ngFor="let event of eventsList"
-    (click)="onDetailsClick(event._id)"
-  >
+  <mat-card class="event-card" role="region" *ngFor="let event of eventsList">
     <mat-card-title-group>
       <img *ngIf="event.imageUrl" src="{{ event.imageUrl }}" mat-card-avatar />
 
@@ -16,9 +11,13 @@
         {{ event.location }}
       </mat-card-subtitle>
     </mat-card-title-group>
-
     <mat-card-content>
-      <button class="mat-elevation-z4" mat-raised-button color="accent">
+      <button
+        class="mat-elevation-z4"
+        mat-raised-button
+        color="accent"
+        (click)="onDetailsClick(event._id)"
+      >
         See more!
       </button>
     </mat-card-content>

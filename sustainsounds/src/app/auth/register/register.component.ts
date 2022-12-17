@@ -36,6 +36,8 @@ export class RegisterComponent {
       return;
     }
 
+    this.passwordError = false;
+
     const { email, password, repeatPassword, alias } = this.registerForm.value;
 
     this.authService

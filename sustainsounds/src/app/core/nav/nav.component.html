@@ -4,8 +4,6 @@
       <a routerLink="/">*sustainsounds</a>
       <a routerLink="/events">events</a>
       <a routerLink="/artists">artists</a>
-      <a routerLink="/events/create">create</a>
-      <a *ngIf="isLoggedIn" routerLink="/profile">profile</a>
     </ng-container>
 
     <ng-container
@@ -21,4 +19,6 @@
 
 <ng-template #loggedInTemplate>
   <a routerLink="/auth/logout">logout</a>
+  <a routerLink="/events/create">create</a>
+  <a routerLink="/profile">profile</a>
 </ng-template>

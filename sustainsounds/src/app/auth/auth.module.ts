@@ -25,7 +25,6 @@ import { LogoutComponent } from './logout/logout.component';
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
-    // MatFormFieldAppearance
   ],
   exports: [RegisterComponent, LoginComponent],
 })

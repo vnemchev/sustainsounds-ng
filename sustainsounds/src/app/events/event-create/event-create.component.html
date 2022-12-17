@@ -29,7 +29,7 @@
           placeholder="20/12/2022"
           readonly
           [matDatepicker]="picker"
-          min="{{ currentDate | date : 'yyyy-MM-dd' }}"
+          min="{{ currentDate | date :  'yyyy-MM-dd' }}"
           name="date"
           id="date"
           type="text"
@@ -121,6 +121,10 @@
         >must be at least 20 chars!</mat-error
       >
     </mat-form-field>
+
+    <mat-error class="create-error" *ngIf="error"
+      >event already exists!</mat-error
+    >
 
     <button
       type="submit"

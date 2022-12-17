@@ -47,3 +47,9 @@ h2 {
 .none {
   margin: 1rem auto;
 }
+
+edit-btn {
+  display: block;
+
+  width: min-content;
+}

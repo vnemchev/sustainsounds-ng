@@ -38,22 +38,18 @@ export class EventDetailsComponent implements OnInit {
       this.userService.getOneArtist(this.user._id).subscribe({
         next: (value) => {
           this.detailedUser = value;
-          console.log(this.detailedUser);
         },
         error: (err) => {
           this.errorFetchingData = true;
-          console.error(err);
         },
       });
     } else {
       this.userService.getOneFan(this.user?._id as string).subscribe({
         next: (value) => {
           this.detailedUser = value;
-          console.log(this.detailedUser);
         },
         error: (err) => {
           this.errorFetchingData = true;
-          console.error(err);
         },
       });
     }
@@ -65,12 +61,10 @@ export class EventDetailsComponent implements OnInit {
         this.hasAttended = this.detailedUser?.eventsAttended?.includes(
           this.eventId
         ) as boolean;
-
-        console.log('attend:' + this.hasAttended);
       },
       error: (err) => {
         this.errorFetchingData = true;
-        console.error(err);
+        this.router.navigate(['/not-found']);
       },
     });
   }
@@ -95,15 +89,19 @@ export class EventDetailsComponent implements OnInit {
   }
 
   onDelete(): void {
-    this.eventsService.delete(this.eventId).subscribe({
-      next: (value) => {
-        console.log(value);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-    this.router.navigate(['/events']);
+    if (
+      window.confirm(`Are you sure you want to delete ${this.event?.name}?`)
+    ) {
+      this.eventsService.delete(this.eventId).subscribe({
+        next: (value) => {
+          console.log(`${value} deleted`);
+        },
+        error: (err) => {
+          this.router.navigate(['/not-found']);
+        },
+      });
+      this.router.navigate(['/events']);
+    }
   }
 
   onBack(): void {

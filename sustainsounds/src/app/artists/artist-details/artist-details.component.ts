@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { IArtist } from 'src/app/shared/interfaces/artist';
 import { IEvent } from 'src/app/shared/interfaces/event';
 import { ArtistsService } from '../artists.service';
@@ -28,7 +29,6 @@ export class ArtistDetailsComponent implements OnInit {
       next: (value) => {
         this.artist = value;
         this.eventsCreated = value.eventsCreated as any as IEvent[];
-        console.log(this.artist);
       },
       error: (err) => {
         this.errorFetchingData = true;

@@ -32,7 +32,6 @@ export class EventListComponent implements OnInit, OnDestroy {
   }
 
   onDetailsClick(id: string): void {
-    console.log(this.router);
     this.router.navigate([`/events/${id}`]);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IEvent } from 'src/app/shared/interfaces/event';
+import { dateFormatter } from 'src/app/shared/util';
 import { EventsService } from '../events.service';
 
 @Component({
@@ -61,7 +62,7 @@ export class EventEditComponent implements OnInit {
 
     const payload = {
       name: this.editForm.value.name as string,
-      date: this.editForm.value.date as string,
+      date: dateFormatter(this.editForm.value.date as any),
       time: this.editForm.value.time as string,
       location: this.editForm.value.location as string,
       price: this.editForm.value.price as unknown as number,
