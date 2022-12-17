@@ -12,9 +12,8 @@
     [x] Display profile based on if artist or fan
     [x] Display attended and created events on profile
     [x] Edit profile for artist
-    [ ] Artist details
-    [ ] Display artist's events
-    [ ] Return something from the backend to show event is attended
+    [x] Artist details
+    [x] Display artist's events
     [ ] Error handling
     [ ] 404 page
     [ ] Home page

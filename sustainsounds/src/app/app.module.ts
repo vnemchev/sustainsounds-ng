@@ -17,8 +17,8 @@ import { ProfileModule } from './profile/profile.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    CoreModule,
     AuthModule,
+    CoreModule,
     ArtistsModule,
     EventsModule,
     SharedModule,

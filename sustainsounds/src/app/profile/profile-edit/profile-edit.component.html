@@ -14,10 +14,10 @@
         required
       />
       <mat-error *ngIf="editForm.get('alias')?.errors?.['required']"
-        >event name required!</mat-error
+        >alias required!</mat-error
       >
       <mat-error *ngIf="editForm.get('alias')?.errors?.['minlength']"
-        >event name must be longer than 3 chars!</mat-error
+        >alias must be longer than 2 chars!</mat-error
       >
     </mat-form-field>
 
@@ -41,7 +41,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
-      <mat-label for="imageUrl">link to image</mat-label>
+      <mat-label for="imageUrl">profile picture</mat-label>
       <input
         matInput
         placeholder="https://www.behance.net/gallery/158161911/I-..."

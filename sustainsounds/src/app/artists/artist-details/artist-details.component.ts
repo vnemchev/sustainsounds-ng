@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IArtist } from 'src/app/shared/interfaces/artist';
+import { IEvent } from 'src/app/shared/interfaces/event';
 import { ArtistsService } from '../artists.service';
 
 @Component({
@@ -11,19 +12,22 @@ import { ArtistsService } from '../artists.service';
 export class ArtistDetailsComponent implements OnInit {
   artistId!: string;
   artist: IArtist | null = null;
+  eventsCreated: IEvent[] = [];
   errorFetchingData = false;
 
   constructor(
     private artistsService: ArtistsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.artistId = this.activatedRoute.snapshot.params['id'];
 
-    this.artistsService.getOneArtist(this.artistId).subscribe({
+    this.artistsService.getOneArtistDetailed(this.artistId).subscribe({
       next: (value) => {
         this.artist = value;
+        this.eventsCreated = value.eventsCreated as any as IEvent[];
         console.log(this.artist);
       },
       error: (err) => {
@@ -31,5 +35,13 @@ export class ArtistDetailsComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  onBack(): void {
+    this.router.navigate(['/artists']);
+  }
+
+  onNavigate(id: string): void {
+    this.router.navigate([`/events/${id}`]);
   }
 }

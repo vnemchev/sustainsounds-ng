@@ -1,7 +1,11 @@
 <div class="container">
   <mat-card class="artist-card" *ngFor="let artist of artistList">
     <mat-card-title-group>
-      <img src="{{ artist.imageUrl }}" mat-card-avatar />
+      <img
+        *ngIf="artist.imageUrl"
+        src="{{ artist.imageUrl }}"
+        mat-card-avatar
+      />
 
       <mat-card-title>
         {{ artist.alias }}

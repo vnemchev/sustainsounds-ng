@@ -1,0 +1,28 @@
+.form {
+  width: 400px;
+  margin: 50px auto;
+  padding: 22px;
+  background-color: rgba(66, 66, 66, 0.4);
+}
+
+.form .edit-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.form .edit-form textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  column-gap: 14px;
+}
+
+.info .info-field {
+  width: calc(100% - 14px);
+}
