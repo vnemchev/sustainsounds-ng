@@ -3,13 +3,30 @@
 </div>
 
 <ng-template #artist>
-  <mat-card>
+  <mat-card class="profile">
+    <img
+      class="profile-pic"
+      *ngIf="detailedArtist!.imageUrl"
+      src="{{ detailedArtist!.imageUrl }}"
+      alt="{{ detailedArtist!.alias }}"
+      mat-card-image
+    />
+
+    <img
+      class="profile-pic"
+      *ngIf="!detailedArtist!.imageUrl"
+      src="https://freesvg.org/img/abstract-user-flat-4.png"
+      alt="{{ detailedArtist!.alias }}"
+      mat-card-image
+    />
+
     <mat-card-title>
       {{ detailedArtist!.alias }}
-      <mat-card-subtitle>
-        Genre: {{ detailedArtist!.genre }}
-      </mat-card-subtitle>
     </mat-card-title>
+    <mat-card-subtitle *ngIf="detailedArtist!.genre">
+      Genre: {{ detailedArtist!.genre }}
+    </mat-card-subtitle>
+    <mat-card-subtitle> {{ detailedArtist!.email }} </mat-card-subtitle>
     <mat-card-content *ngIf="detailedArtist!.bio">
       {{ detailedArtist?.bio }}
     </mat-card-content>
@@ -27,65 +44,86 @@
     *ngIf="detailedArtist?.eventsCreated?.length; else noCreated"
     class="created"
   >
-    <mat-card *ngFor="let event of eventsCreated">
-      <mat-card-title-group>
-        <img
-          *ngIf="event.imageUrl"
-          src="{{ event.imageUrl }}"
-          mat-card-avatar
-        />
+    <h2>Created events:</h2>
+    <div>
+      <mat-card *ngFor="let event of eventsCreated">
+        <mat-card-title-group>
+          <img
+            *ngIf="event.imageUrl"
+            src="{{ event.imageUrl }}"
+            mat-card-avatar
+          />
 
-        <mat-card-title>
-          {{ event.name }}
-        </mat-card-title>
+          <mat-card-title>
+            {{ event.name }}
+          </mat-card-title>
 
-        <mat-card-subtitle>
-          {{ event.location }}
-        </mat-card-subtitle>
-      </mat-card-title-group>
+          <mat-card-subtitle>
+            {{ event.location }}
+          </mat-card-subtitle>
+        </mat-card-title-group>
 
-      <mat-card-content>
-        <!-- <mat-card-actions> -->
-        <button class="mat-elevation-z4" mat-raised-button color="accent">
-          See more!
-        </button>
-      </mat-card-content>
-    </mat-card>
+        <mat-card-content>
+          <!-- <mat-card-actions> -->
+          <button
+            class="mat-elevation-z4"
+            mat-raised-button
+            color="accent"
+            (click)="onDetails(event._id)"
+          >
+            See more!
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </section>
 
   <section
     *ngIf="detailedArtist!.eventsAttended?.length; else noAttended"
     class="attended"
   >
-    <mat-card *ngFor="let event of eventsAttended">
-      <mat-card-title-group>
-        <img
-          *ngIf="event.imageUrl"
-          src="{{ event.imageUrl }}"
-          mat-card-avatar
-        />
+    <h2>Attended events:</h2>
+    <div>
+      <mat-card *ngFor="let event of eventsAttended">
+        <mat-card-title-group>
+          <img
+            *ngIf="event.imageUrl"
+            src="{{ event.imageUrl }}"
+            mat-card-avatar
+          />
 
-        <mat-card-title>
-          {{ event.name }}
-        </mat-card-title>
+          <mat-card-title>
+            {{ event.name }}
+          </mat-card-title>
 
-        <mat-card-subtitle>
-          {{ event.location }}
-        </mat-card-subtitle>
-      </mat-card-title-group>
+          <mat-card-subtitle>
+            {{ event.location }}
+          </mat-card-subtitle>
+        </mat-card-title-group>
 
-      <mat-card-content>
-        <!-- <mat-card-actions> -->
-        <button class="mat-elevation-z4" mat-raised-button color="accent">
-          See more!
-        </button>
-      </mat-card-content>
-    </mat-card>
+        <mat-card-content>
+          <!-- <mat-card-actions> -->
+          <button
+            class="mat-elevation-z4"
+            mat-raised-button
+            color="accent"
+            (click)="onDetails(event._id)"
+          >
+            See more!
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </section>
 </ng-template>
 
 <ng-template #fan>
-  <mat-card>
+  <mat-card class="profile">
+    <img
+      src="https://freesvg.org/img/abstract-user-flat-4.png"
+      alt="profile-picture"
+      mat-card-image
+    />
     <mat-card-title>
       {{ detailedFan!.email }}
     </mat-card-title>
@@ -94,37 +132,45 @@
     *ngIf="detailedFan!.eventsAttended?.length; else noAttended"
     class="attended"
   >
-    <mat-card *ngFor="let event of eventsAttended">
-      <mat-card-title-group>
-        <img
-          *ngIf="event.imageUrl"
-          src="{{ event.imageUrl }}"
-          mat-card-avatar
-        />
+    <h2>Events attended:</h2>
+    <div>
+      <mat-card *ngFor="let event of eventsAttended">
+        <mat-card-title-group>
+          <img
+            *ngIf="event.imageUrl"
+            src="{{ event.imageUrl }}"
+            mat-card-avatar
+          />
 
-        <mat-card-title>
-          {{ event.name }}
-        </mat-card-title>
+          <mat-card-title>
+            {{ event.name }}
+          </mat-card-title>
 
-        <mat-card-subtitle>
-          {{ event.location }}
-        </mat-card-subtitle>
-      </mat-card-title-group>
+          <mat-card-subtitle>
+            {{ event.location }}
+          </mat-card-subtitle>
+        </mat-card-title-group>
 
-      <mat-card-content>
-        <!-- <mat-card-actions> -->
-        <button class="mat-elevation-z4" mat-raised-button color="accent">
-          See more!
-        </button>
-      </mat-card-content>
-    </mat-card>
+        <mat-card-content>
+          <!-- <mat-card-actions> -->
+          <button
+            class="mat-elevation-z4"
+            mat-raised-button
+            color="accent"
+            (click)="onDetails(event._id)"
+          >
+            See more!
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </section>
 </ng-template>
 
 <ng-template #noAttended>
-  <h1>No events attended yet!</h1>
+  <h2 class="none">No events attended yet!</h2>
 </ng-template>
 
 <ng-template #noCreated>
-  <h1>No events created yet!</h1>
+  <h2 class="none">No events created yet!</h2>
 </ng-template>

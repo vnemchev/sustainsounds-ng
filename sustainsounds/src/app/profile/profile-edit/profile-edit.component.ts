@@ -37,9 +37,9 @@ export class ProfileEditComponent implements OnInit {
         this.artist = value;
         this.editForm.setValue({
           alias: this.artist.alias,
-          genre: this.artist.genre as string,
-          bio: this.artist.bio as string,
-          imageUrl: this.artist.imageUrl as string,
+          genre: (this.artist.genre as string) || null,
+          bio: (this.artist.bio as string) || null,
+          imageUrl: (this.artist.imageUrl as string) || null,
         });
         console.log(this.artist);
       },

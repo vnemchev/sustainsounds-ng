@@ -10,8 +10,6 @@
       <mat-card-subtitle>
         {{ artist.genre }}
       </mat-card-subtitle>
-
-      <mat-card-subtitle> </mat-card-subtitle>
     </mat-card-title-group>
 
     <mat-card-content>
@@ -19,12 +17,6 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <!-- <div *ngIf="isLoggedIn">
-        <ng-container
-          *ngTemplateOutlet="isOwner ? owner : guest"
-        ></ng-container>
-      </div> -->
-
       <button
         class="mat-elevation-z4"
         mat-raised-button
@@ -34,7 +26,9 @@
         Back
       </button>
     </mat-card-actions>
+
     <h2 *ngIf="eventsCreated.length">Catch them at:</h2>
+
     <ul *ngFor="let event of eventsCreated">
       <li (click)="onNavigate(event._id)">{{ event.name }}</li>
     </ul>

@@ -31,7 +31,6 @@ export class AppInterceptor implements HttpInterceptor {
         setHeaders: { 'X-Authorization': token },
       });
 
-    // throw new Error('Method not implemented.');
     return next.handle(request);
   }
 }

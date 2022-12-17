@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { IArtist } from '../shared/interfaces/artist';
 import { IFan } from '../shared/interfaces/fan';
-import { tap } from 'rxjs';
-import { Router } from '@angular/router';
 import { IUser } from '../shared/interfaces/configs';
 
 const url = environment.apiURL;
@@ -16,9 +17,7 @@ export class AuthService {
   storage: string | null = localStorage.getItem('user');
   user: IUser | null = JSON.parse(this.storage as any) as IUser;
 
-  constructor(private httpClient: HttpClient, private router: Router) {
-    console.log('storage' + this.storage);
-  }
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   get isLoggedIn(): boolean {
     return this.user !== null;
@@ -84,7 +83,6 @@ export class AuthService {
   }
 
   isOwner(eventId: string): boolean {
-    console.log('service' + this.user?._id === eventId);
     return this.user?._id === eventId;
   }
 }

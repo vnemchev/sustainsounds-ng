@@ -5,10 +5,21 @@
   align-items: center;
 }
 
+mat-card-actions {
+  display: flex;
+}
+
 mat-card {
   width: 30rem;
+  background-color: transparent;
+  background-color: rgba(66, 66, 66, 0.3);
+  -webkit-transition: all 0.9s 0s ease;
+  -moz-transition: all 0.9s 0s ease;
+  -o-transition: all 0.9s 0s ease;
+  transition: all 0.9s 0s ease;
 }
 
 mat-card-actions {
   display: flex;
+  justify-content: space-around;
 }
