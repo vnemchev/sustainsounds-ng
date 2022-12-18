@@ -19,11 +19,10 @@ export class ArtistListComponent implements OnInit {
     this.artistService.getAllArtists().subscribe({
       next: (value) => {
         this.artistList = value;
-        console.log(this.artistList);
       },
       error: (err) => {
         this.errorFetchingData = true;
-        console.error(err);
+        console.log(err);
       },
     });
   }

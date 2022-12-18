@@ -24,7 +24,7 @@ export class LoginComponent {
 
     this.authService.login(email as string, password as string).subscribe({
       next: (value) => {
-        console.log(value);
+        console.log('Succesful login');
       },
       error: (err) => {
         this.loginError = true;

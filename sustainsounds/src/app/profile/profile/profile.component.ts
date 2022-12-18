@@ -34,13 +34,13 @@ export class ProfileComponent implements OnInit {
         .getOneArtistDetailed(this.user?._id as string)
         .subscribe({
           next: (value) => {
-            console.log(value);
             this.detailedArtist = value;
             this.eventsCreated = value.eventsCreated as any as IEvent[];
             this.eventsAttended = value.eventsAttended as any as IEvent[];
           },
           error: (err) => {
             console.log(err);
+            this.router.navigate(['/not-found']);
           },
         });
     } else {
@@ -51,6 +51,7 @@ export class ProfileComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);
+          this.router.navigate(['/not-found']);
         },
       });
     }
