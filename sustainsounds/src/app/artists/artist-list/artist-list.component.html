@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="artistList?.length" class="container">
   <mat-card class="artist-card" *ngFor="let artist of artistList">
     <mat-card-title-group>
       <img
@@ -27,3 +27,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+<h2 *ngIf="!artistList?.length">No artists yet...</h2>

@@ -1,4 +1,4 @@
-<div class="events-container">
+<div *ngIf="eventsList?.length" class="events-container">
   <mat-card class="event-card" role="region" *ngFor="let event of eventsList">
     <mat-card-title-group>
       <img *ngIf="event.imageUrl" src="{{ event.imageUrl }}" mat-card-avatar />
@@ -23,3 +23,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+<h2 *ngIf="!eventsList?.length">No events yet...</h2>
