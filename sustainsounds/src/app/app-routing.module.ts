@@ -1,10 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
+  {
+    path: 'events',
+    loadChildren: () =>
+      import('./events/events.module').then((m) => m.EventsModule),
+  },
+  {
+    path: 'artists',
+    loadChildren: () =>
+      import('./artists/artists.module').then((m) => m.ArtistsModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule),
+  },
   {
     path: '',
     pathMatch: 'full',
@@ -22,7 +37,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

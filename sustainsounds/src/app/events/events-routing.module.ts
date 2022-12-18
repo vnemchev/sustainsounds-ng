@@ -8,21 +8,21 @@ import { EventListComponent } from './event-list/event-list.component';
 
 const routes: Routes = [
   {
-    path: 'events',
+    path: '',
     component: EventListComponent,
   },
   {
-    path: 'events/create',
+    path: 'create',
     title: 'Create Event',
     component: EventCreateComponent,
   },
   {
-    path: 'events/:id',
+    path: ':id',
     title: 'More Info',
     component: EventDetailsComponent,
   },
   {
-    path: 'events/:id/edit',
+    path: ':id/edit',
     title: 'Edit Event',
     component: EventEditComponent,
   },

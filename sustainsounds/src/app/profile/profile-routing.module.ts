@@ -5,12 +5,12 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
-    path: 'profile',
+    path: '',
     title: 'Profile',
     component: ProfileComponent,
   },
   {
-    path: 'profile/edit/:id',
+    path: 'edit/:id',
     title: 'Edit Profile',
     component: ProfileEditComponent,
   },

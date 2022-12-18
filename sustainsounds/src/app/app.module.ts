@@ -6,27 +6,24 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventsModule } from './events/events.module';
+// import { EventsModule } from './events/events.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-import { ArtistsModule } from './artists/artists.module';
+// import { ArtistsModule } from './artists/artists.module';
 import { appInterceptorProvider } from './app.interceptor';
-import { ProfileModule } from './profile/profile.module';
+// import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     AuthModule,
     CoreModule,
-    ArtistsModule,
-    EventsModule,
     SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatNativeDateModule,
-    ProfileModule,
     AppRoutingModule,
   ],
   providers: [appInterceptorProvider],

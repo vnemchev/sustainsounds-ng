@@ -6,11 +6,11 @@ import { ArtistListComponent } from './artist-list/artist-list.component';
 
 const routes: Routes = [
   {
-    path: 'artists',
+    path: '',
     component: ArtistListComponent,
   },
   {
-    path: 'artists/:id',
+    path: ':id',
     component: ArtistDetailsComponent,
   },
 ];
