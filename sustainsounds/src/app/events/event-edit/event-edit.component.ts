@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { IEvent } from 'src/app/shared/interfaces/event';
 import { dateFormatter } from 'src/app/shared/util';
 import { EventsService } from '../events.service';

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ArtistsService } from 'src/app/artists/artists.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IArtist } from 'src/app/shared/interfaces/artist';

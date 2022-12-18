@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { ArtistsService } from 'src/app/artists/artists.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IArtist } from 'src/app/shared/interfaces/artist';
 import { IUser } from 'src/app/shared/interfaces/configs';
-
 import { IEvent } from 'src/app/shared/interfaces/event';
 import { IFan } from 'src/app/shared/interfaces/fan';
 import { EventsService } from '../events.service';
+
 
 @Component({
   selector: 'app-event-details',

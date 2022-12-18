@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { EventsService } from '../events.service';
-import { IEventPayload } from 'src/app/shared/interfaces/configs';
-import { Router } from '@angular/router';
 import { dateFormatter } from 'src/app/shared/util';
 
 @Component({

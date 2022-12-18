@@ -12,6 +12,11 @@ body {
   object-fit: cover;
 }
 
+main {
+  width: 100%;
+  position: relative;
+}
+
 .tint {
   background-color: rgba(0, 0, 0, 0.8);
   background-blend-mode: multiply;
@@ -23,7 +28,6 @@ input[matinput]::-webkit-inner-spin-button,
 input[matinput]::-webkit-calendar-picker-indicator {
   display: none;
   background: none;
-  /* -webkit-appearance: none; */
   margin: 0;
 }
 

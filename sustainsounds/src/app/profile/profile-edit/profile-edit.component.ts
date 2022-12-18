@@ -65,7 +65,9 @@ export class ProfileEditComponent implements OnInit {
         console.log(res);
         this.router.navigate(['/profile']);
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        this.router.navigate(['/not-found']);
+      },
     });
   }
 }
