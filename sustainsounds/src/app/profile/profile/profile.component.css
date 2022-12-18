@@ -15,7 +15,7 @@ mat-card {
 }
 
 mat-card.profile {
-  width: 40vw;
+  width: 36vw;
   height: 60vh;
   display: flex;
   flex-direction: column;

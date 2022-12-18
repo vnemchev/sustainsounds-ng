@@ -7,13 +7,13 @@
         {{ event.name }}
       </mat-card-title>
 
-      <mat-card-subtitle>
-        {{ event.location }} {{ event.date }} {{ event.time }}
-      </mat-card-subtitle>
+      <mat-card-subtitle> {{ event.date }} {{ event.time }} </mat-card-subtitle>
 
       <mat-card-subtitle>
-        {{ event.price }}
+        {{ event.location }}
       </mat-card-subtitle>
+
+      <mat-card-subtitle> &euro; {{ event.price }} </mat-card-subtitle>
 
       <mat-card-subtitle> </mat-card-subtitle>
     </mat-card-title-group>

@@ -34,10 +34,10 @@ export class EventCreateComponent implements OnInit {
 
   create(): void {
     if (this.createForm.invalid) return;
-    
+
     const payload = {
       name: this.createForm.value.name as string,
-      date: dateFormatter(this.createForm.value.date as any),
+      date: dateFormatter(this.createForm.value.date as any as Date),
       time: this.createForm.value.time as string,
       location: this.createForm.value.location as string,
       price: this.createForm.value.price as unknown as number,

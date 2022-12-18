@@ -49,7 +49,6 @@ export class EventEditComponent implements OnInit {
           imageUrl: this.event.imageUrl || null,
           description: this.event.description || null,
         });
-        console.log(this.editForm.errors);
       },
       error: (err) => {
         this.errorFetchingData = true;
@@ -63,7 +62,7 @@ export class EventEditComponent implements OnInit {
 
     const payload = {
       name: this.editForm.value.name as string,
-      date: dateFormatter(this.editForm.value.date as any),
+      date: dateFormatter(this.editForm.value.date as any as Date),
       time: this.editForm.value.time as string,
       location: this.editForm.value.location as string,
       price: this.editForm.value.price as unknown as number,
